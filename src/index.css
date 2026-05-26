@@ -134,6 +134,14 @@ textarea:focus {
     max-width: 600px;
 }
 
+.custom-modal-boxes {
+    background: white;
+    border-radius: 16px;
+    max-height: 90vh;
+    overflow-y: auto;
+    width: 90%;
+    max-width: 450px;
+}
 /* OPEN animation: top → down */
 .slide-in {
     animation: slideDown 0.4s ease-out forwards;

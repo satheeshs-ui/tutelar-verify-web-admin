@@ -209,3 +209,7 @@ export { default as FileEyeIcon } from "./images/common-icons/FileEyeIcon.svg";
 export { default as FrameIcon } from "./images/common-icons/FrameIcon.svg";
 export { default as PdfIcon } from "./images/common-icons/pdf.svg";
 export { default as message } from "./images/common-icons/message.svg";
+export { default as deleteiconwhite } from "./images/common-icons/deleteiconwhite.svg";
+export { default as deleteIconimage } from "./images/common-icons/deleteIconimage.svg";
+export { default as deleteWhitecolor } from "./images/common-icons/deleteWhitecolor.svg";
+export { default as warningtriangle } from "./images/common-icons/warningtriangle.svg";

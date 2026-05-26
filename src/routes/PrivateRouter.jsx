@@ -23,6 +23,10 @@ export default function PrivateRoute() {
         "/roles/roles-list",
         "/roles/role-list/create-role",
         "/roles/role-list/edit-role/",
+        "/clients-list/create-client",
+        "/clients-list/edit-client",
+        "/designations/designations-list",
+        "/departments/department-list"
     ];
     const allowedPaths = [
         ...defaultPaths,
