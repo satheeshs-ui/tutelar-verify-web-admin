@@ -1,0 +1,192 @@
+@import "tailwindcss";
+@theme {
+    --color-primary: var(--color-primary);
+    --color-sidebar: var(--color-sidebar);
+    --gradient-primary: var(--gradient-primary);
+    --color-secondary: #162854;
+    --color-pending: #c49231;
+    --color-completed: #338a38;
+    --color-submitted: #3772ff;
+    --color-rejected: #c50a0a;
+    --color-white: #ffffff;
+    --color-black: #010100;
+    --color-grey: #333333;
+    --color-purple: var(--color-purple);
+    --color-violet: #4f3cf6;
+    --color-border-grey: var(--color-border-grey);
+    --color-breadcrumb: var(--color-breadcrumb);
+    --color-sidebar-text: #a0adcc;
+
+    /* ===============================
+     🌈 PRIMARY COLOR PALETTE (Refund Blue)
+     =============================== */
+    --color-primary-refund-1: #e8f7ff;
+    --color-primary-refund-2: #d5efff;
+    --color-primary-refund-3: #b3dfff;
+    --color-primary-refund-4: #85c8ff;
+    --color-primary-refund-5: #56a2ff;
+    --color-primary-refund-6: #2f7bff;
+    --color-primary-refund-7: #0c4dff;
+    --color-primary-refund-8: #0042fe;
+    --color-primary-refund-9: #063dcd;
+    --color-primary-refund-10: #103b9f;
+    --color-primary-refund-11: #0a205c;
+
+    /* ===============================
+     🔴 SECONDARY COLOR PALETTE (Refund Red)
+     =============================== */
+    --color-red-1: #fff0f0;
+    --color-red-2: #ffdddd;
+    --color-red-3: #ffc0c0;
+    --color-red-4: #ff9494;
+    --color-red-5: #ff5857;
+    --color-red-6: #ff2423;
+    --color-red-7: #fe0100;
+    --color-red-8: #d70100;
+    --color-red-9: #b10403;
+    --color-red-10: #920b0a;
+    --color-red-11: #500000;
+    --color-red-12: #e02342;
+    /* ===============================
+
+    /* ===============================
+     SECONDARY COLOR PALETTE (Blue)
+     =============================== */
+    --color-blue-1: #eff6ff;
+
+    /* ===============================
+
+      /* ===============================
+     SECONDARY COLOR PALETTE (Pink)
+     =============================== */
+    --color-pink-1: #faf5ff;
+    --color-pink-2: #8200db;
+
+    /* ===============================
+     ⚙️ Neutral / Base Theme
+     =============================== */
+    --color-primary-theme-1: #eef5ff;
+    --color-primary-theme-2: #0f172b;
+    --color-primary-theme-3: #1447e6;
+    --color-primary-theme-4: #f8fafc;
+    --color-primary-theme-5: #1d293d;
+    --color-primary-theme-6: #314158;
+
+    /* ===============================
+     Secondary Theme
+     =============================== */
+    --color-secondary-theme-1: #ebeffa;
+    --color-secondary-theme-2: #c7d2f0;
+    --color-secondary-theme-3: #a2b6e6;
+    --color-secondary-theme-4: #7e99dd;
+    --color-secondary-theme-5: #5a7cd3;
+    --color-secondary-theme-6: #365fc9;
+    --color-secondary-theme-7: #2c4ea5;
+    --color-secondary-theme-8: #223d81;
+    --color-secondary-theme-9: #162854;
+    --color-secondary-theme-10: #0f1b38;
+    --color-secondary-theme-11: #050a14;
+
+    /* ===============================
+     Black Theme
+     =============================== */
+    --color-primary-black-1: #cdd0d1;
+    --color-primary-black-2: #e7e7e7;
+    --color-primary-black-3: #d1d1d1;
+    --color-primary-black-4: #b0b0b0;
+    --color-primary-black-5: #888888;
+    --color-primary-black-6: #6d6d6d;
+    --color-primary-black-7: #5d5d5d;
+    --color-primary-black-8: #454545;
+    --color-primary-black-9: #3d3d3d;
+    --color-primary-black-10: #222222;
+    --color-primary-black-11: #555555;
+    --color-primary-black-12: #757575;
+    --color-primary-black-13: #dfdfe1;
+    --color-primary-black-14: #f7f8f8;
+    --color-primary-black-15: #000000;
+    --color-primary-black-16: #0f0f0f;
+
+    /* ===============================
+     Purple Theme
+     =============================== */
+    --color-primary-purple-1: #8d89cf;
+    --color-primary-purple-2: #4f3cf6;
+    --color-primary-purple-3: #e9e1ff;
+
+    /* ===============================
+     Grey Theme
+     =============================== */
+    --color-primary-grey-1: var(--color-primary-grey-1);
+    --color-primary-grey-2: #62748e;
+    --color-primary-grey-3: #e2e8f0;
+    --color-primary-grey-4: #e0e0e0;
+    --color-primary-grey-5: #40444c;
+    --color-primary-grey-6: #a8a8a8;
+    --color-primary-grey-7: #f0eded;
+    --color-primary-grey-8: #9ca3af;
+    --color-primary-grey-8: #6b6b6b;
+    --color-primary-grey-9: #f6f6f6e0;
+    --color-primary-grey-10: #ebebeb;
+
+    /* added custom grey color */
+    --color-agent-label: #6a7174;
+
+    /* ===============================
+     Yellow / Pending Theme
+     =============================== */
+    --color-primary-yellow-1: #fff9ec;
+    --color-primary-yellow-2: #fff3d3;
+    --color-primary-yellow-3: #ffe3a5;
+    --color-primary-yellow-4: #ffcd6d;
+    --color-primary-yellow-5: #ffab32;
+    --color-primary-yellow-6: #ff900a;
+    --color-primary-yellow-7: #ff7800;
+    --color-primary-yellow-8: #cc5702;
+    --color-primary-yellow-9: #a1430b;
+    --color-primary-yellow-10: #82390c;
+    --color-primary-yellow-11: #461a04;
+
+    /* ===============================
+     Green / Completed Theme
+     =============================== */
+    --color-primary-green-1: #007a55;
+    --color-primary-green-2: #ecfdf5;
+    --color-primary-green-3: #bef4d3;
+    --color-primary-green-4: #8beab1;
+    --color-primary-green-5: #51d787;
+    --color-primary-green-6: #2dcd69;
+    --color-primary-green-7: #1d9c51;
+    --color-primary-green-8: #1a7b42;
+    --color-primary-green-9: #1a6138;
+    --color-primary-green-10: #175030;
+    --color-primary-green-11: #072c17;
+    --color-primary-green-12: #007a55;
+    --color-primary-green-13: #f0fdf4;
+    --color-primary-green-14: #008236;
+
+    /* ===============================
+     Border Green / Completed Theme
+     =============================== */
+    --color-primary-border-green-1: #a4f4cf;
+    --color-primary-border-green-1: #b9f8cf;
+
+    /* ===============================
+     Border Blue / Completed Theme
+     =============================== */
+    --color-primary-border-blue-1: #bedbff;
+
+    /* ===============================
+     Border Pink / Completed Theme
+     =============================== */
+    --color-primary-border-pink-1: #e9d4ff;
+
+    /* Satheesh */
+    --onboard-business-default-color: #341c6e /* Typography */;
+
+    /* Custom breakpoints */
+    --breakpoint-2xl: 1400px; /* 1200-1400px */
+    --breakpoint-3xl: 1500px; /* 1400-1500px */
+    --breakpoint-4xl: 1600px; /* 1500-1600px */
+    --breakpoint-5xl: 1601px; /* >1600px */
+}

@@ -1,0 +1,147 @@
+/* ===== COMMON HEIGHT + BORDER ===== */
+
+.common-input.ant-input,
+.common-input.ant-picker,
+.common-input .ant-select-selector,
+.common-input.ant-select .ant-select-selector {
+    height: 48px !important;
+    border-radius: 14px !important;
+    border: 1px solid #cdd0d1 !important;
+    padding: 0 16px !important;
+    display: flex;
+    align-items: center;
+    box-shadow: none !important;
+}
+
+/* remove hover */
+.common-input.ant-input:hover,
+.common-input.ant-picker:hover,
+.common-input.ant-select:hover .ant-select-selector {
+    border-color: #cdd0d1 !important;
+}
+
+/* remove focus blue */
+.common-input.ant-input:focus,
+.common-input.ant-input-focused,
+.common-input.ant-picker-focused,
+.common-input.ant-select-focused .ant-select-selector {
+    border-color: #cdd0d1 !important;
+    box-shadow: none !important;
+}
+
+/* remove active */
+.common-input.ant-select-open .ant-select-selector {
+    border-color: #cdd0d1 !important;
+    box-shadow: none !important;
+}
+
+/* ===== placeholder same ===== */
+
+.common-input input::placeholder {
+    color: #9ca3af !important;
+    font-size: 14px !important;
+}
+
+.common-input .ant-select-selection-placeholder {
+    color: #9ca3af !important;
+    font-size: 14px !important;
+}
+
+.common-input .ant-picker-input input::placeholder {
+    color: #9ca3af !important;
+}
+
+/* ===== text alignment ===== */
+
+.common-input input {
+    line-height: 40px !important;
+}
+
+.common-input .ant-select-selection-item {
+    line-height: 40px !important;
+}
+
+.common-input .ant-picker-input input {
+    line-height: 40px !important;
+}
+
+/* custom country code */
+/* PHONE FIELD PERFECT MATCH WITH common-input */
+
+.phone-wrapper {
+    height: 48px;
+    border-radius: 14px;
+    border: 1px solid #cdd0d1;
+    display: flex;
+    align-items: center;
+    padding: 4px 16px; /* 🔥 same as common-input */
+    background: white;
+}
+
+/* Remove antd internal styling completely */
+.phone-select .ant-select-selector {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    height: 100% !important;
+    display: flex;
+    align-items: center;
+    background: transparent !important;
+}
+
+.phone-select {
+    width: 95px;
+}
+
+.phone-select .ant-select-selection-item {
+    line-height: 40px !important; /* 🔥 alignment fix */
+}
+
+/* Input */
+.phone-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    height: 100%;
+    font-size: 14px;
+    padding-left: 8px;
+    line-height: 40px; /* 🔥 this fixes vertical alignment */
+}
+
+.phone-wrapper:focus-within {
+    border-color: #cdd0d1;
+    box-shadow: none;
+}
+
+/* REMOVE ALL SELECT BORDER / HOVER / FOCUS */
+
+.phone-select .ant-select-selector {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+}
+
+.phone-select.ant-select-focused .ant-select-selector,
+.phone-select .ant-select-selector:hover,
+.phone-select.ant-select-open .ant-select-selector {
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+/* remove outer border also */
+.phone-select {
+    border: none !important;
+}
+
+/* remove focus ring completely */
+.phone-select .ant-select-focused {
+    box-shadow: none !important;
+}
+.phone-divider {
+    width: 1px;
+    background-color: #e5e7eb;
+    margin: 0 8px;
+    align-self: stretch;
+}

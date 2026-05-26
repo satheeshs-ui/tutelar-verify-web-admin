@@ -1,0 +1,125 @@
+.ant-checkbox-wrapper:not(.ant-checkbox-wrapper-disabled):hover
+    .ant-checkbox-checked:not(.ant-checkbox-disabled)
+    .ant-checkbox-inner {
+    background-color: var(--color-primary) !important;
+    border-color: var(--color-primary) !important;
+}
+.ant-checkbox .ant-checkbox-inner {
+    background-color: #f3f3f5 !important;
+    border-color: #90a9b9 !important;
+}
+
+.ant-checkbox-checked .ant-checkbox-inner {
+    background-color: var(--color-primary) !important;
+    border-color: var(--color-primary) !important;
+}
+
+.ant-checkbox-disabled .ant-checkbox-inner {
+    background-color: rgba(0, 0, 0, 0.04) !important;
+    border-color: #d9d9d9;
+}
+
+.ant-checkbox:not(.ant-checkbox-disabled):hover .ant-checkbox-inner {
+    border-color: var(--color-primary) !important;
+}
+.ant-checkbox-wrapper:hover {
+    border-color: var(--color-primary) !important;
+}
+.ant-checkbox-indeterminate .ant-checkbox-inner:after {
+    top: 50%;
+    inset-inline-start: 50%;
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-primary) !important;
+    border: 0;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    content: "";
+}
+
+/* custom checkbox */
+
+/* ONLY select agent dropdown checkbox */
+/* checkbox box */
+.custom-agent-dropdown .ant-checkbox-inner {
+    width: 12px !important;
+    height: 12px !important;
+    border: 1px solid #818a8c !important;
+    background: #fff !important;
+    border-radius: 0 !important;
+    position: relative;
+}
+
+/* ✅ center tick properly */
+.custom-agent-dropdown .ant-checkbox-inner::after {
+    position: absolute;
+    top: 50% !important;
+    left: 50% !important;
+
+    width: 3px !important;
+    height: 6px !important;
+
+    transform: translate(-50%, -60%) rotate(45deg) !important;
+
+    border: solid #fff;
+    border-width: 0 1.5px 1.5px 0;
+}
+
+/* checked */
+.custom-agent-dropdown .ant-checkbox-checked .ant-checkbox-inner {
+    background-color: var(--color-primary) !important;
+    border-color: var(--color-primary) !important;
+}
+
+/* hover remove grey */
+.custom-agent-dropdown .ant-checkbox-wrapper:hover .ant-checkbox-inner {
+    background: #fff !important;
+    border-color: #818a8c !important;
+}
+
+/* focus shadow remove */
+.custom-agent-dropdown .ant-checkbox-input:focus + .ant-checkbox-inner {
+    box-shadow: none !important;
+}
+
+/* each option row */
+.custom-agent-dropdown .agent-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* checkbox wrapper reset */
+.custom-agent-dropdown .ant-checkbox-wrapper {
+    display: flex !important;
+    align-items: center;
+    gap: 8px;
+    margin: 0 !important;
+    line-height: 1 !important;
+}
+
+/* checkbox container fix */
+.custom-agent-dropdown .ant-checkbox {
+    display: flex;
+    align-items: center;
+}
+
+/* label alignment */
+.custom-agent-dropdown .agent-label {
+    display: flex;
+    align-items: center;
+    line-height: 20px;
+}
+
+/* make option full flex row */
+.custom-agent-dropdown .ant-select-item-option-content {
+    display: flex !important;
+    align-items: center !important;
+    width: 100%;
+}
+
+/* remove AntD checkbox label spacing */
+.custom-agent-dropdown .ant-checkbox-wrapper {
+    margin: 0 !important;
+    padding: 0 !important;
+}

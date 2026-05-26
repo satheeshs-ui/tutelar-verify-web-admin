@@ -1,0 +1,4 @@
+.ant-card .ant-card-body {
+    padding: 0px !important;
+    border-radius: 0 0 var(--ant-border-radius-lg) var(--ant-border-radius-lg);
+}

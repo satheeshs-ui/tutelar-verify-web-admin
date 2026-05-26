@@ -1,0 +1,15 @@
+.ant-popover .ant-popover-inner {
+    padding: 0rem 0 0rem 0 !important;
+}
+.ant-popover .ant-popover-inner:hover {
+    padding: 0.2rem 0 0.2rem 0 !important;
+}
+.ant-dropdown .ant-dropdown-menu .ant-dropdown-menu-item,
+.ant-dropdown-menu-submenu .ant-dropdown-menu .ant-dropdown-menu-item,
+.ant-dropdown .ant-dropdown-menu .ant-dropdown-menu-submenu-title,
+.ant-dropdown-menu-submenu .ant-dropdown-menu .ant-dropdown-menu-submenu-title {
+    padding: 5px 0px !important;
+}
+.ant-dropdown .ant-dropdown-menu .ant-dropdown-menu-item:hover {
+    background-color: unset !important;
+}

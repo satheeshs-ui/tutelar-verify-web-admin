@@ -1,0 +1,283 @@
+/* custom select dropdown */
+
+.ant-select-dropdown {
+    padding: 0 !important;
+}
+
+.custom-agent-dropdown {
+    padding: 12px !important;
+    border-radius: 16px !important;
+    background: #fff !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* option */
+.custom-agent-dropdown .ant-select-item-option {
+    padding: 10px 12px !important;
+    margin-bottom: 6px;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+.custom-agent-dropdown .ant-select-item-option:last-child {
+    margin-bottom: 0;
+}
+
+/* hover */
+.custom-agent-dropdown .ant-select-item-option-active {
+    background: rgba(0, 0, 0, 0.04) !important;
+}
+
+/* selected */
+.custom-agent-dropdown .ant-select-item-option-selected {
+    /* background: rgba(0, 0, 0, 0.06) !important; */
+    font-weight: 500;
+}
+
+/* remove tick */
+.custom-agent-dropdown {
+    padding: 10px;
+    border-radius: 16px !important;
+    background: #ffffff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* remove blue hover */
+.custom-agent-dropdown .ant-select-item-option-active {
+    background: transparent !important;
+}
+
+.custom-agent-dropdown .ant-select-item-option-state {
+    display: none !important;
+}
+
+.custom-agent-dropdown .ant-select-item-option {
+    padding: 10px 12px !important;
+}
+
+/* scroll */
+.custom-agent-dropdown .rc-virtual-list-holder {
+    max-height: 240px;
+}
+
+/* text */
+.custom-agent-dropdown .ant-select-item-option-content {
+    font-size: 14px;
+    color: #111827;
+}
+
+/* checkbox style */
+
+/* box size */
+
+.custom-agent-dropdown .ant-checkbox-inner {
+    width: 16px !important;
+    height: 16px !important;
+    border: 1px solid #c6ccd4 !important;
+    border-radius: 0 !important;
+}
+
+.custom-agent-dropdown .ant-checkbox-checked .ant-checkbox-inner {
+    background-color: var(--color-primary) !important;
+    border-color: var(--color-primary) !important;
+}
+
+.custom-agent-dropdown .ant-checkbox-input:focus + .ant-checkbox-inner {
+    box-shadow: none !important;
+}
+
+/* .ant-checkbox-inner {
+  width: 16px !important;
+  height: 16px !important;
+  border: 1px solid #C6CCD4 !important;
+  border-radius: 0 !important;
+} */
+
+/* tick */
+/* .ant-checkbox-inner::after {
+  top: 2px;
+  left: 4px;
+  width: 2px;
+  height: 4px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+} */
+
+/* checked state color change */
+.ant-checkbox-checked .ant-checkbox-inner {
+    background-color: var(--color-primary) !important;
+    border-color: var(--color-primary) !important;
+}
+
+/* focus blue shadow remove */
+.ant-checkbox-input:focus + .ant-checkbox-inner {
+    box-shadow: none !important;
+}
+
+/* checkbox selected style */
+
+.agent-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* checkbox fixed size */
+.agent-option .ant-checkbox {
+    display: flex;
+    align-items: center;
+}
+
+/* 🔥 text always same position */
+.agent-label {
+    flex: 1;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0;
+    color: var(--color-agent-label);
+}
+/* .field-label {
+  display: block !important;
+  font-weight: 400 !important;
+  font-size: 14px !important;
+  line-height: 20px !important;
+  letter-spacing: 0 !important;
+  color: var(--color-agent-label) !important;
+} */
+
+/* input */
+.custom-search-input {
+    /* border: none; */
+    border-color: #c6ccd4;
+    outline: none;
+    width: 100%;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: #a6a6a6;
+    background: transparent;
+}
+
+/* placeholder style */
+.custom-search-input::placeholder {
+    color: #a6a6a6;
+    font-weight: 500;
+}
+
+/* wrapper */
+.search-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+/* icon inside input */
+.search-icon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: #a6a6a6;
+    pointer-events: none;
+}
+
+/* input */
+/* wrapper */
+.search-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+/*  image icon proper position */
+.search-icon-img {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+/* input */
+.custom-search-input {
+    width: 100%;
+    padding: 8px 10px 8px 36px;
+    border: 1px solid #c6ccd4;
+    border-radius: 8px;
+    outline: none;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: #a6a6a6;
+    background: #fff;
+}
+
+/* placeholder */
+.custom-search-input::placeholder {
+    color: #a6a6a6;
+    font-weight: 500;
+}
+
+/* slected list show */
+
+/* Reduce overall tag height */
+.ant-select-multiple .ant-select-selection-item {
+    background: #ffffff !important;
+    border: 1px solid #0f766e !important;
+    border-radius: 999px !important;
+
+    height: 24px !important;
+    padding: 0 8px !important;
+    font-size: 12px !important;
+    line-height: 22px !important;
+    font-weight: 400;
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+}
+
+/* reduce gap between tags */
+.ant-select-multiple .ant-select-selection-overflow-item {
+    margin: 2px !important;
+}
+
+/* smaller close icon */
+.ant-select-selection-item-remove {
+    margin-left: 4px;
+    font-size: 9px !important;
+}
+
+/* ===== same placeholder for this page only ===== */
+
+.agent-form .ant-input::placeholder,
+.agent-form input::placeholder {
+    color: #a6a6a6 !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+}
+
+/* Select placeholder */
+.agent-form .ant-select-selection-placeholder {
+    color: #a6a6a6 !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+}
+
+/* Datepicker placeholder */
+.agent-form .ant-picker-input > input::placeholder {
+    color: #a6a6a6 !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+}
+
+/* Timepicker placeholder */
+.agent-form .ant-picker-input > input::placeholder {
+    color: #a6a6a6 !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+}

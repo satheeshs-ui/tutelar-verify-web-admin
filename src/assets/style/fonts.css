@@ -1,0 +1,20 @@
+@font-face {
+    font-family: "Geomanist";
+    src:
+        url("../assets/fonts/Geomanist/Geomanist-Regular.woff2") format("woff2"),
+        url("../assets/fonts/Geomanist/Geomanist-Regular.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Geomanist";
+    src: url("../assets/fonts/Geomanist/Geomanist-Medium.woff2") format("woff2");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "Geomanist";
+    src: url("../assets/fonts/Geomanist/Geomanist-Bold.woff2") format("woff2");
+    font-weight: 700;
+}
