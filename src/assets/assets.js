@@ -234,3 +234,5 @@ export { default as VerifiedIcon } from './images/common-icons/VerifiedIcon.svg'
 export { default as SendMessage } from './images/common-icons/SendMessage.svg';
 export { default as Reporticon } from './images/common-icons/Reporticon.svg';
 export { default as SynceDetaicon } from './images/common-icons/SynceDetaicon.svg';
+export { default as activetick } from './images/common-icons/activetick.svg';
+

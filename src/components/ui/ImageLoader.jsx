@@ -222,7 +222,6 @@ import {
   clientIcon,
   adminprofile,
   closeIconAdmin,
-
   MetriceIcon,
   DownloadIcon,
   PdfIcons,
@@ -230,7 +229,8 @@ import {
   SendMessage,
   Reporticon,
   SynceDetaicon,
-} from '../../assets/assets';
+  activetick,
+} from "../../assets/assets";
 
 // Define allowed image keys for internal use
 const images = {
@@ -463,6 +463,7 @@ const images = {
   SendMessage,
   Reporticon,
   SynceDetaicon,
+  activetick,
 };
 
 const ImageLoader = ({

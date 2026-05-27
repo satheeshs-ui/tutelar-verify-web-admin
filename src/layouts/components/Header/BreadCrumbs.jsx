@@ -58,7 +58,7 @@ const BreadCrumbs = () => {
             <div className="flex items-center">
                 <ul className="flex items-center">
                     <li
-                        className="flex items-center text-base font-medium text-primary-grey-1 cursor-pointer"
+                        className="flex items-center text-base text-primary-grey-1 cursor-pointer"
                         onClick={() => navigate(firstMenuPath)}
                     >
                         <ImageLoader imageKey="Homeicons" className="w-4 h-4 mr-2" />
@@ -84,10 +84,10 @@ const BreadCrumbs = () => {
                                     onClick={isClickable ? () => handleNavigate() : undefined}
                                     className={`flex items-center sm:text-base text-[10px] ${
                                         isLast
-                                            ? "text-breadcrumb font-bold"
+                                            ? "text-[#2C3436]!"
                                             : isClickable
-                                              ? "cursor-pointer text-primary-grey-1 font-medium"
-                                              : "text-primary-grey-1 font-medium"
+                                              ? "cursor-pointer text-primary-grey-1"
+                                              : "text-primary-grey-1"
                                     }`}
                                 >
                                     {(filteredParts.length === 1 || index !== 0) && displayName}

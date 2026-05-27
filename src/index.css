@@ -1,27 +1,6 @@
-@import 'tailwindcss';
-@import './assets/style/theme.css';
-@import './assets/style/fonts.css';
-
-@font-face {
-  font-family: "Geomanist";
-  src: url("./assets/fonts/GeomanistThin.ttf") format("truetype");
-  font-weight: 100;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Geomanist";
-  src: url("./assets/fonts/GeomanistExtraLight.ttf") format("truetype");
-  font-weight: 200;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Geomanist";
-  src: url("./assets/fonts/GeomanistLight.ttf") format("truetype");
-  font-weight: 300;
-  font-style: normal;
-}
+@import "tailwindcss";
+@import "./assets/style/theme.css";
+@import "./assets/style/fonts.css";
 
 @font-face {
   font-family: "Geomanist";
@@ -34,41 +13,29 @@
   font-family: "Geomanist";
   src: url("./assets/fonts/GeomanistMedium.ttf") format("truetype");
   font-weight: 500;
-
+  font-style: normal;
 }
 
 @font-face {
   font-family: "Geomanist";
   src: url("./assets/fonts/GeomanistBook.ttf") format("truetype");
   font-weight: 600;
-
+  font-style: normal;
 }
 
 @font-face {
   font-family: "Geomanist";
   src: url("./assets/fonts/GeomanistBold.ttf") format("truetype");
   font-weight: 700;
- 
+  font-style: normal;
 }
 
-@font-face {
-  font-family: "Geomanist";
-  src: url("./assets/fonts/GeomanistBlack.ttf") format("truetype");
-  font-weight: 800;
-  
-}
 
-@font-face {
-  font-family: "Geomanist";
-  src: url("./assets/fonts/GeomanistUltra.ttf") format("truetype");
-  font-weight: 900;
- 
-}
 body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  font-family: 'Geomanist', sans-serif;
+  font-family: "Geomanist", sans-serif;
 }
 p {
   margin-bottom: 0.5rem !important;
@@ -113,10 +80,10 @@ input[data-autocompleted] {
   background-color: transparent !important;
 }
 
-[type='text']:focus {
+[type="text"]:focus {
   outline: none !important;
 }
-[type='text']::placeholder {
+[type="text"]::placeholder {
   color: #757575 !important;
   font-size: 14px !important;
   font-weight: 400 !important;
@@ -148,7 +115,7 @@ textarea {
 }
 
 textarea::placeholder {
-  color: '#757575';
+  color: "#757575";
   font-weight: 500;
   font-size: 14px;
 }

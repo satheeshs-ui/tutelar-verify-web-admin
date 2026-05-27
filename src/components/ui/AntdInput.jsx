@@ -50,7 +50,7 @@ const AntdInput = ({
                             className={
                                 labelCss
                                     ? labelCss
-                                    : "text-[#0B1C20] font-normal text-[14px] leading-5"
+                                    : "text-[#2C3436] font-normal text-[14px] leading-5"
                             }
                         >
                             {label}

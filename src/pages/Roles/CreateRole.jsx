@@ -327,7 +327,7 @@ const CreateRolePage = () => {
                 <ImageLoader imageKey="MenuHeaderIcon" />
               </div>
               <div className="">
-                 <p className="text-[#0B1C20]! text-[18px] font-medium! leading-6">Menu Permissions</p>
+                 <p className="text-[#0B1C20]! text-[18px] font-medium leading-6">Menu Permissions</p>
                 <p className="text-[#6A7174]! text-[14px] mt-2! max-[500px]:text-[11px] font-normal">
                   Configure access levels for each menu
                 </p>
@@ -344,7 +344,7 @@ const CreateRolePage = () => {
                     className="font-normal text-[#6A7174] text-[14px] overall-input-box"
                   />
                 </div>
-                {/* <div className="p-3 bg-[#F9FAFB] border border-[#E6E7E8] rounded-lg">
+                <div className="p-3 bg-[#F9FAFB] border border-[#E6E7E8] rounded-lg">
                   <label className="flex items-center gap-3 text-[#818A8C] text-sm">
                     <input
                       type="checkbox"
@@ -358,7 +358,7 @@ const CreateRolePage = () => {
                     />
                     Enable All Read
                   </label>
-                </div> */}
+                </div>
               </div>
             </div>
           </div>
@@ -472,10 +472,10 @@ const CreateRolePage = () => {
                             />
 
                             <div>
-                              <p className="text-[#0B1C20] text-[16px] max-[500px]:text-[13px]">
+                              <p className="text-[#0B1C20] text-[18px] font-medium">
                                 {child.menuName}
                               </p>
-                              <p className="text-[#818A8C] text-[12px] pt-1">
+                              <p className="text-[#818A8C] text-[14px] pt-1">
                                 {totalEnabled} of {total} enabled
                               </p>
                             </div>
@@ -484,38 +484,41 @@ const CreateRolePage = () => {
                           <div className="flex flex-wrap gap-4 items-center">
                             <label className="flex overall-table-text gap-2 bg-[#F9FAFB] rounded-[10px] p-3 items-center text-[#2C3436] text-[14px]">
                               <div
-                                className={`w-4 h-4 rounded-full border border-[#E6E7E8] cursor-pointer ${
+                                className={` cursor-pointer ${
                                   selectedMenus[key]
-                                    ? "bg-[#18667C]"
-                                    : "bg-[#fff]"
+                                    ? ""
+                                    : "bg-[#fff] w-4 h-4 rounded-full border border-[#E6E7E8]"
                                 }`}
                                 onClick={() => toggleRead(key)}
                               >
                                 {selectedMenus[key] && (
                                   <div className="flex justify-center items-center mt-0.5">
-                                    <Check className="w-3 h-3 text-white" />
+                                    {/* <Check className="w-3 h-3 text-white" /> */}
+                                    <ImageLoader imageKey={'activetick'} className="w-4 h-4"/>
                                   </div>
                                 )}
                               </div>
-                              <div>Read Only</div>
+                              <div className={`${selectedMenus[key]?"text-[#17B26A]":"text-[#2C3436]"} text-[14px]`}>Read Only</div>
                             </label>
 
                             <label className="flex overall-table-text gap-2 bg-[#F9FAFB] rounded-[10px] p-3 items-center text-[#2C3436] text-[14px]">
                               <div
-                                className={`w-4 h-4 rounded-full border border-[#E6E7E8] cursor-pointer ${
+                                className={` cursor-pointer ${
                                   writeSelectedMenus[key]
-                                    ? "bg-[#18667C]"
-                                    : "bg-[#fff]"
+                                    ? ""
+                                    : "w-4 h-4 rounded-full border border-[#E6E7E8]"
                                 }`}
                                 onClick={() => toggleWrite(key)}
                               >
                                 {writeSelectedMenus[key] && (
                                   <div className="flex justify-center items-center mt-0.5">
-                                    <Check className="w-3 h-3 text-white" />
+                                    {/* <Check className="w-3 h-3 text-white" /> */}
+                                    <ImageLoader imageKey={'activetick'} className="w-4 h-4"/>
+
                                   </div>
                                 )}
                               </div>
-                              <div>Read and Write</div>
+                              <div className={`${writeSelectedMenus[key]?"text-[#17B26A]":"text-[#2C3436]"} text-[14px]`}>Read and Write</div>
                             </label>
                           </div>
                         </div>
@@ -532,7 +535,7 @@ const CreateRolePage = () => {
           <div className="rounded-xl bg-[#E9F0F2] p-5 h-max max-[400px]:w-auto">
             <div className="flex gap-2">
               <ImageLoader imageKey="RoleSummaryIcon" />
-              <span className="text-[#0F172B] text-[16px] font-medium max-[500px]:text-[13px]">
+              <span className="text-[#0F172B] text-[18px] font-medium">
                 Summary
               </span>
             </div>
@@ -544,7 +547,7 @@ const CreateRolePage = () => {
                   Read Only
                 </span>
               </div>
-              <p className="text-[#0F172B] font-medium text-[25px] py-1">
+              <p className="text-[#0F172B] font-medium text-[30px] py-1">
                 {readCount}
               </p>
               <p className="text-[#818A8C] text-[12px]">Permissions granted</p>
@@ -580,7 +583,7 @@ const CreateRolePage = () => {
               <ImageLoader imageKey="RoleSummaryVector" />
             </div>
 
-            <div className="mt-4">
+            <div className="mt-[18px]!">
               <div className="flex justify-between">
                 <p className="text-[#45556C] text-[14px]">Configuration</p>
                 <p className="text-[#18667C] font-medium">{percentage}%</p>
@@ -588,13 +591,13 @@ const CreateRolePage = () => {
 
               <div className="w-full h-2 bg-white rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-[#18667C] rounded-full"
+                  className="h-full bg-[#18667C] font-medium rounded-full"
                   style={{ width: `${percentage}%` }}
                 ></div>
               </div>
             </div>
           </div>
-          {/* {isEdit && ( */}
+          {isEdit && (
           <div className="mt-6 rounded-2xl border border-[#CDD0D1] p-5">
             <p className="text-[#0B1C20] text-[18px] max-[500px]:text-[14px] font-medium">
               Quick Actions
@@ -612,7 +615,7 @@ const CreateRolePage = () => {
               <ImageLoader imageKey="ClearPermissionIcon" />
             </div>
           </div>
-          {/* )}  */}
+          )} 
         </div>
       </div>
     </div>

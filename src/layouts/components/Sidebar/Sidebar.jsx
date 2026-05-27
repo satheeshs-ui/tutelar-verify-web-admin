@@ -192,7 +192,7 @@ export default function Sidebar() {
                                                 </div>
 
                                                 <span
-                                                    className={`2xl:text-base text-[10px] sm:text-xs overall-sidebar-text font-medium text-center leading-tight mt-1.5 ${
+                                                    className={`2xl:text-base text-[10px] sm:text-xs overall-sidebar-text text-center leading-tight mt-1.5 ${
                                                         isParentActive
                                                             ? "text-white"
                                                             : "text-white/50"
