@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, useCallback } from "react";
+import { useEffect, useMemo, useState } from "react";
 import UniversalTable from "../../components/ui/Table/UniversalTable";
 import Pagination from "../../components/ui/Table/Pagination";
 import { checkValue, shouldShowPagination } from "../../utils";
@@ -9,10 +9,9 @@ import SecondaryButton from "../../components/buttons/SecondaryButton";
 import { PrimaryButton } from "../../components/buttons/PrimaryButton";
 import ImageLoader from "../../components/ui/ImageLoader";
 import { ModalPopUp } from "../../components/ui/Modal/ModalPopUp";
-import CommonPopover from "../../components/ui/CommonPopOver";
 import UserFilter from "./Filter";
 import useUserStore from "../../store/User/useUserStore";
-import { Button, Form, Select, Tag, Tooltip } from "antd";
+import { Form, Select, Tooltip } from "antd";
 import { useHeaderStore } from "../../store/Header/useHeaderStore";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -20,10 +19,9 @@ import { departmentSchema } from "./Validation/departmentSchema";
 import AntdInput from "../../components/ui/AntdInput";
 import { CustomPrimaryButton } from "../../components/buttons/CustomPrimaryButton";
 import CustomSecondaryButton from "../../components/buttons/CustomSecondaryButton";
+import CommonStatusSelect from "../../components/ui/CommonStatusSelect";
 
 const DepartmentList = () => {
-  // const { setHeaderAction } = useOutletContext();
-
   const navigate = useNavigate();
   const { getUserList, userList, updateUser, isLoading } = useUserStore();
 
@@ -46,12 +44,10 @@ const DepartmentList = () => {
   const [dateRange, setDateRange] = useState([null, null]);
   const totalRecords = agentListData?.total;
   const totalPages = totalRecords > 0 ? Math.ceil(totalRecords / limit) : 0;
-  const startDate = dateRange?.[0]?.format("YYYY-MM-DD");
-  const endDate = dateRange?.[1]?.format("YYYY-MM-DD");
   const [isEdit, setIsEdit] = useState(false);
   const {
     control,
-
+    reset,
     handleSubmit,
     formState: { errors },
   } = useForm({
@@ -61,31 +57,41 @@ const DepartmentList = () => {
     },
   });
 
-  console.log(deptDetails)
+  console.log(deptDetails);
   const params = useMemo(
     () => ({
       page,
       limit,
-      ...(search ? { [selectType]: search } : {}),
       ...(status && status !== "all" ? { status } : {}),
       ...(appUserType && appUserType !== "all" ? { appUserType } : {}),
-
-      ...(startDate && endDate && { startDate, endDate }),
     }),
-    [page, limit, search, status, appUserType, selectType,endDate,startDate],
+    [page, limit, status, appUserType],
   );
+  const statusOptions = [
+    {
+      label: "Active",
+      value: "active",
+      color: "bg-green-500",
+    },
+    {
+      label: "Inactive",
+      value: "inactive",
+      color: "bg-red-500",
+    },
+  ];
 
-  const handleTable = useCallback(() => {
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/immutability
+    handleTable();
+  }, [page, limit, getUserList, clear]);
+
+  const handleTable = () => {
     const fetchData = async () => {
       await getUserList(params);
     };
 
     fetchData();
-  }, [getUserList, params]);
-
-  useEffect(() => {
-    handleTable();
-  }, [handleTable]);
+  };
 
   const handleStatusChange = (user, value) => {
     if (!user?.userId) {
@@ -109,14 +115,14 @@ const DepartmentList = () => {
     setStatus("");
     setClear(true);
     setPage(1);
-    setDateRange([null, null]);
     setRole("");
   };
 
   const handleClose = () => {
     setDesignationDetail(null);
     setOpenModal(false);
-    setDeleteModal(false)
+    setDeleteModal(false);
+    reset("name", "");
   };
 
   //   const handleSubmit = () => {
@@ -125,6 +131,7 @@ const DepartmentList = () => {
 
   const onSubmit = (data) => {
     console.log("Form data:", data);
+    reset("name", "");
     // You can perform further actions with the form data here, such as making an API call to save the department information.
   };
   const onError = (err) => {
@@ -227,25 +234,11 @@ const DepartmentList = () => {
                   render: (u) => {
                     return (
                       <div>
-                        <Select
+                        <CommonStatusSelect
                           value={u.status}
-                          className="text-[12px] border border-[#CDD0D1]! rounded-[20px]! capitalize"
+                          options={statusOptions}
                           onChange={(value) => handleStatusChange(u, value)}
-                        >
-                          <Option value="active">
-                            <div className="flex items-center gap-2">
-                              <span className="w-2 h-2 rounded-full bg-green-500"></span>
-                              Active
-                            </div>
-                          </Option>
-
-                          <Option value="inactive">
-                            <div className="flex items-center gap-2">
-                              <span className="w-2 h-2 rounded-full bg-red-500"></span>
-                              Inactive
-                            </div>
-                          </Option>
-                        </Select>
+                        />
                       </div>
                     );
                   },
@@ -335,9 +328,10 @@ const DepartmentList = () => {
                               placeholder="Enter department name"
                               isMandatory
                               error={errors.name?.message}
-                              onValueChange={(data) =>
-                                field.onChange(data.value)
-                              }
+                              onValueChange={(data) => {
+                                console.log(data);
+                                field.onChange(data.value);
+                              }}
                             />
                           )}
                         />
@@ -377,7 +371,7 @@ const DepartmentList = () => {
                         <div className="text-[#0B1C20] text-[18px]! font-semibold flex items-center gap-2">
                           <div className="bg-[#FEF3F2]! p-3 rounded-sm mr-2">
                             <ImageLoader imageKey={"deleteIconimage"} />
-                          </div>{" "}
+                          </div>
                           Are you sure you want to delete Department?
                         </div>
                       </div>
@@ -386,7 +380,7 @@ const DepartmentList = () => {
                   {/* deleteWhitecolor,warningtriangle */}
                   <div className="mt-[18px] bg-[#F9FAFB] py-3 px-[18px] rounded">
                     <p className="text-[#0B1C20]! text-[16px]! font-medium!">
-                     Technology
+                      Technology
                     </p>
                     <p className="text-[12px]!">
                       <span className="text-[#6A7174]!">Created By : </span>{" "}

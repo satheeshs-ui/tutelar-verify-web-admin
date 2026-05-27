@@ -1,9 +1,9 @@
-import * as zod from "zod";
+import { z } from "zod";
 
-export const departmentSchema = zod.object({
-  name: zod
+export const departmentSchema = z.object({
+  name: z
     .string()
     .trim()
     .min(1, "Department name is mandatory")
-    .max(150, "Maximum 150 characters allowed"),
+    .max(50, "Maximum 50 characters allowed"),
 });

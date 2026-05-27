@@ -20,6 +20,7 @@ import { designationSchema } from "./Validation/designationSchema";
 import AntdInput from "../../components/ui/AntdInput";
 import { CustomPrimaryButton } from "../../components/buttons/CustomPrimaryButton";
 import CustomSecondaryButton from "../../components/buttons/CustomSecondaryButton";
+import CommonStatusSelect from "../../components/ui/CommonStatusSelect";
 
 const DesignationList = () => {
   // const { setHeaderAction } = useOutletContext();
@@ -61,7 +62,7 @@ const DesignationList = () => {
     },
   });
 
-  console.log(deptDetails)
+  console.log(deptDetails);
   const params = useMemo(
     () => ({
       page,
@@ -72,8 +73,21 @@ const DesignationList = () => {
 
       ...(startDate && endDate && { startDate, endDate }),
     }),
-    [page, limit, search, status, appUserType, selectType,endDate,startDate],
+    [page, limit, search, status, appUserType, selectType, endDate, startDate],
   );
+
+  const statusOptions = [
+    {
+      label: "Active",
+      value: "active",
+      color: "bg-green-500",
+    },
+    {
+      label: "Inactive",
+      value: "inactive",
+      color: "bg-red-500",
+    },
+  ];
 
   const handleTable = useCallback(() => {
     const fetchData = async () => {
@@ -116,7 +130,7 @@ const DesignationList = () => {
   const handleClose = () => {
     setDesignationDetail(null);
     setOpenModal(false);
-    setDeleteModal(false)
+    setDeleteModal(false);
   };
 
   //   const handleSubmit = () => {
@@ -227,25 +241,11 @@ const DesignationList = () => {
                   render: (u) => {
                     return (
                       <div>
-                        <Select
+                        <CommonStatusSelect
                           value={u.status}
-                          className="text-[12px] border border-[#CDD0D1]! rounded-[20px]! capitalize"
+                          options={statusOptions}
                           onChange={(value) => handleStatusChange(u, value)}
-                        >
-                          <Option value="active">
-                            <div className="flex items-center gap-2">
-                              <span className="w-2 h-2 rounded-full bg-green-500"></span>
-                              Active
-                            </div>
-                          </Option>
-
-                          <Option value="inactive">
-                            <div className="flex items-center gap-2">
-                              <span className="w-2 h-2 rounded-full bg-red-500"></span>
-                              Inactive
-                            </div>
-                          </Option>
-                        </Select>
+                        />
                       </div>
                     );
                   },
@@ -375,7 +375,7 @@ const DesignationList = () => {
                   <div className="flex justify-between items-center border-b border-[#CDD0D1] pb-4">
                     <div>
                       <div className="flex items-center gap-2">
-                        <div className="text-[#0B1C20] text-[18px] font-semibold flex items-center gap-2">
+                        <div className="text-[#0B1C20] text-[18px] font-medium flex items-center gap-2">
                           <div className="bg-[#FEF3F2]! p-3 rounded-sm mr-2">
                             <ImageLoader imageKey={"deleteIconimage"} />
                           </div>{" "}
@@ -384,7 +384,7 @@ const DesignationList = () => {
                       </div>
                     </div>
                   </div>
-                  {/* deleteWhitecolor,warningtriangle */}
+
                   <div className="mt-[18px] bg-[#F9FAFB] py-3 px-[18px] rounded">
                     <p className="text-[#0B1C20]! text-[16px]! font-medium!">
                       Chief Technology Officer
