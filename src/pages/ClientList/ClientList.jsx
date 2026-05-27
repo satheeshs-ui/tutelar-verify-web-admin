@@ -90,6 +90,10 @@ const Clientlist = () => {
     navigate(`/client/client-list/detail/${id}`);
   };
 
+  const handleEditClient = (id = '') => {
+    navigate(`/clients-list/edit-client/${id}`);
+  };
+
   const handleFilterChange = filterType => {
     setSelectType(filterType);
     setSearch('');
@@ -437,10 +441,11 @@ const Clientlist = () => {
                         </span>
                         <span
                           className='cursor-pointer'
-                          onClick={() => handleCreateAgentPage(u?.userId)}
+                          onClick={() => handleEditClient(u?.userId)}
                         >
                           <ImageLoader imageKey='EditIcons' />
                         </span>
+                        
 
                         <span
                           className='cursor-pointer'
