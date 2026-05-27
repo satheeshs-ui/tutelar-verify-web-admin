@@ -43,7 +43,7 @@ const Documents = () => {
     <div className='p-5'>
       <div className='flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-[#CDD0D1] pb-5'>
         <div>
-          <h2 className='text-[18px] font-mediun text-[#0B1C20]'>
+          <h2 className='text-[16px] font-semibold! text-[#0B1C20 mb-0!'>
             Uploaded Documents
           </h2>
 
@@ -65,7 +65,7 @@ const Documents = () => {
         {documents.map(doc => (
           <div
             key={doc.id}
-            className='py-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-b border-[#CDD0D1] pr-30'
+            className='py-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-b border-[#CDD0D1] pr-30'
           >
             <div className='flex items-start gap-4'>
               <div className='flex items-center justify-center  shrink-0'>
@@ -73,7 +73,7 @@ const Documents = () => {
               </div>
 
               <div>
-                <h3 className='text-[16px] font-medium text-[#111827] break-all'>
+                <h3 className='text-[15px] font-semibold! text-[#111827] break-all'>
                   {doc.name}
                 </h3>
 

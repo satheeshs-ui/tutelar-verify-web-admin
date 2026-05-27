@@ -12,7 +12,7 @@ const BillingDetail = ({ agents = [] }) => {
   return (
     <div className=' overflow-hidden'>
       <div className='px-4 md:px-6 py-5 border-b border-[#CDD0D1]'>
-        <h2 className='text-[18px] md:text-[18px] font-medium text-[#111827]'>
+        <h2 className='text-[16px] md:text-[16px] font-semibold! text-[#111827] mb-0!'>
           Total Agents
         </h2>
 
@@ -43,7 +43,7 @@ const BillingDetail = ({ agents = [] }) => {
                 </div>
 
                 <div className='min-w-0'>
-                  <h3 className='text-[15px] md:text-[16px] font-medium text-[#0B1C20]'>
+                  <h3 className='text-[15px] md:text-[16px] font-semibold! text-[#0B1C20]'>
                     {agent?.name || '-'}
                   </h3>
 

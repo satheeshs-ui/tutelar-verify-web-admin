@@ -62,7 +62,7 @@ const stats = [
 function ClientOverviewSection() {
   return (
     <div className='w-full  p-4'>
-      <div className='grid grid-cols-2 xl:grid-cols-12 gap-4'>
+      <div className='grid grid-cols-2 xl:grid-cols-12 gap-5'>
         <div className='xl:col-span-8'>
           <div className='bg-white border border-[#CDD0D1] rounded-[12px] overflow-hidden'>
             <div className='flex items-center gap-3 px-4 py-4 border-b border-[#CDD0D1] bg-[#F9FAFB]'>
@@ -71,7 +71,7 @@ function ClientOverviewSection() {
                 className='w-5 h-5 text-[#1F2937]'
               />
 
-              <p className='text-[18px] font-medium text-[#111827] mb-0!'>
+              <p className='text-[16px] font-semibold text-[#111827] mb-0!'>
                 Company Information
               </p>
             </div>
@@ -124,10 +124,10 @@ function ClientOverviewSection() {
         </div>
 
         <div className='xl:col-span-4'>
-          <div className='bg-gradient-to-b from-[#18667C] to-[#135263] rounded-[20px] p-8 h-full text-white'>
-            <h2 className='text-[18px] font-medium mb-7!'>Contact Details</h2>
+          <div className='bg-gradient-to-b from-[#18667C] to-[#135263] rounded-[12px] p-6 h-full text-white'>
+            <h2 className='text-[17px] font-semibold! mb-6!'>Contact Details</h2>
 
-            <div className='flex items-center gap-4 mb-6'>
+            <div className='flex items-center gap-4 mb-8 pl-1'>
               <div className='w-14 h-14 rounded-full bg-white/20 flex items-center justify-center text-[16px] font-semibold'>
                 SM
               </div>
@@ -137,13 +137,13 @@ function ClientOverviewSection() {
                   Sarah Mitchell
                 </h3>
 
-                <p className='text-[#CBFBF1] mt-1 text-[12px]'>
+                <p className='text-[#CBFBF1] mt-2! text-[12px]'>
                   Senior Account Manager
                 </p>
               </div>
             </div>
 
-            <div className='bg-white/20 rounded-[12px] p-4 border border-white/10'>
+            <div className='bg-white/20 rounded-[12px] p-4 '>
               <div className='flex items-center gap-3 pb-4 border-b border-white/20'>
                 <Mail size={18} />
 
@@ -162,10 +162,10 @@ function ClientOverviewSection() {
         </div>
       </div>
 
-      <div className='grid grid-cols-2 xl:grid-cols-12 gap-4 mt-4 items-stretch'>
+      <div className='grid grid-cols-2 xl:grid-cols-12 gap-5 mt-4 items-stretch'>
         <div className='xl:col-span-4 flex'>
-          <div className='bg-white border border-[#CDD0D1] rounded-[12px] p-4 md:p-5 w-full flex flex-col '>
-            <h2 className='text-[16px] md:text-[18px] font-semibold text-[#111827] mb-5'>
+          <div className='bg-white border border-[#CDD0D1] rounded-[12px] p-4 md:p-4 w-full flex flex-col '>
+            <h2 className='text-[16px] md:text-[17px] font-semibold! text-[#111827] mb-5'>
               Quick Actions
             </h2>
 
@@ -190,13 +190,10 @@ function ClientOverviewSection() {
 
         <div className='xl:col-span-8 flex'>
           <div className='bg-white border border-[#CDD0D1] rounded-[12px] overflow-hidden  w-full flex flex-col'>
-            <div className='flex items-center gap-3 px-4 md:px-5 py-4 border-b border-[#CDD0D1] bg-[#F9FAFB]'>
-              <ImageLoader
-                imageKey='MetriceIcon'
-                className='w-4 h-4 md:w-5 md:h-5'
-              />
+            <div className='flex items-center gap-3 px-4 md:px-5 py-5 border-b border-[#CDD0D1] bg-[#F9FAFB]'>
+              <ImageLoader imageKey='MetriceIcon' />
 
-              <h2 className='text-[15px] sm:text-[16px] md:text-[18px] font-medium text-[#111827] mb-0 leading-none mb-0!'>
+              <h2 className='text-[15px] sm:text-[16px] md:text-[17px] font-semibold! text-[#0B1C20] mb-0 leading-none mb-0!'>
                 Performance Metrics
               </h2>
             </div>
