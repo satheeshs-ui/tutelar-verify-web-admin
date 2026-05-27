@@ -219,6 +219,13 @@ import {
   deleteIconimage,
   deleteWhitecolor,
   warningtriangle,
+  MetriceIcon,
+  DownloadIcon,
+  PdfIcons,
+  VerifiedIcon,
+  SendMessage,
+  Reporticon,
+  SynceDetaicon,
 } from '../../assets/assets';
 
 // Define allowed image keys for internal use
@@ -442,6 +449,13 @@ const images = {
   deleteIconimage,
   deleteWhitecolor,
   warningtriangle,
+  MetriceIcon,
+  DownloadIcon,
+  PdfIcons,
+  VerifiedIcon,
+  SendMessage,
+  Reporticon,
+  SynceDetaicon,
 };
 
 const ImageLoader = ({

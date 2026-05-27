@@ -1,22 +1,33 @@
 import React, { useState, useEffect } from 'react';
-
 import { Button, Tabs } from 'antd';
 import ClientOverviewSection from './ClientOverviewSection';
 import ImageLoader from '../../../components/ui/ImageLoader';
 import { useHeaderStore } from '../../../store/Header/useHeaderStore';
 import { PrimaryButton } from '../../../components/buttons/PrimaryButton';
+import { useNavigate } from 'react-router-dom';
+import Documents from './Document';
+import BillingDetail from './BillingDetail';
 
 const ClientDetail = () => {
   const [activeTab, setActiveTab] = useState('overview');
   const { setHeader, clearHeader } = useHeaderStore();
+  const navigate = useNavigate();
+
+  const handleCreateAgentPage = (id = '') => {
+    navigate(`/clients-list/edit-client/${id}`);
+  };
 
   useEffect(() => {
     setHeader({
       title: '',
       actions: (
         <div>
-          <div>
-            <PrimaryButton label={'Edit Client'} iconLeft={'EditWhiteIcon'} />
+          <div className='cursor-pointer'>
+            <PrimaryButton
+              label={'Edit Client'}
+              iconLeft={'EditWhiteIcon'}
+              onNotify={handleCreateAgentPage}
+            />
           </div>
         </div>
       ),
@@ -24,6 +35,25 @@ const ClientDetail = () => {
 
     return () => clearHeader();
   }, []);
+
+  const agentsData = [
+  {
+    id: 1,
+    name: 'John Doe',
+    email: 'john@company.com',
+    role: 'Admin',
+    roleColor: 'bg-[#F3E8FF] text-[#9333EA]',
+    status: 'Active',
+  },
+   {
+    id: 1,
+    name: 'John Doe',
+    email: 'john@company.com',
+    role: 'Checker',
+    roleColor: 'bg-[#F3E8FF] text-[#9333EA]',
+    status: 'Active',
+  },
+];
 
   const items = [
     {
@@ -46,11 +76,7 @@ const ClientDetail = () => {
           <span>Documents</span>
         </div>
       ),
-      children: (
-        <div className='bg-white rounded-[24px] p-10 text-center text-[#667085]'>
-          Documents Content
-        </div>
-      ),
+      children: <Documents />,
     },
     {
       key: 'billing',
@@ -60,11 +86,7 @@ const ClientDetail = () => {
           <span>Billing</span>
         </div>
       ),
-      children: (
-        <div className='bg-white rounded-[24px] p-10 text-center text-[#667085]'>
-          Billing Content
-        </div>
-      ),
+    children: <BillingDetail agents={agentsData} />,
     },
     {
       key: 'activity',
@@ -101,7 +123,7 @@ const ClientDetail = () => {
   return (
     <div className=''>
       <div className='rounded-[16px] bg-gradient-to-r from-[#057E73] to-[#32889F] px-6 py-5'>
-        <div className='grid grid-cols-1 lg:grid-cols-3 items-center'>
+        <div className='grid grid-cols-1 lg:grid-cols-4 items-center'>
           <div className='flex items-center gap-4'>
             <div className='w-10 h-10 flex items-center justify-center rounded-[14px] bg-white/10'>
               <ImageLoader imageKey='tickicons' className='w-5 h-5' />
@@ -115,12 +137,12 @@ const ClientDetail = () => {
             </div>
           </div>
 
-          <div className='lg:border-l lg:border-white/20 lg:px-8 flex flex-col justify-center mt-4 lg:mt-0'>
+          <div className='lg:border-l lg:border-white/20 lg:pl-8 flex flex-col justify-center mt-4 lg:mt-0'>
             <p className='text-[13px] text-white/70'>Member Since</p>
             <h2 className='text-[16px] font-semibold text-white'>2026-01-10</h2>
           </div>
 
-          <div className='lg:border-l lg:border-white/20 lg:px-8 flex flex-col justify-center mt-4 lg:mt-0'>
+          <div className='lg:border-l lg:border-white/20 lg:pl-8 flex flex-col justify-center mt-4 lg:mt-0'>
             <p className='text-[13px] text-white/70'>Plan Type</p>
             <h2 className='text-[16px] font-semibold text-white'>
               Human Agent V-KYC

@@ -16,6 +16,7 @@ import ImageLoader from '../../components/ui/ImageLoader';
 import { useHeaderStore } from '../../store/Header/useHeaderStore';
 import Paginations from '../../components/ui/Table/paginactions';
 import ClientFilter from './Filter/ClientFilter';
+import CommonStatusSelect from '../../components/ui/CommonStatusSelect';
 
 const { Option } = Select;
 
@@ -180,6 +181,7 @@ const Clientlist = () => {
     });
 
     return () => clearHeader();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     clearHeader,
     setHeader,
@@ -225,6 +227,19 @@ const Clientlist = () => {
   //       </Button>
   //     );
   //   };
+
+  const statusOptions = [
+    {
+      label: 'Active',
+      value: 'active',
+      color: 'bg-green-500',
+    },
+    {
+      label: 'Inactive',
+      value: 'inactive',
+      color: 'bg-red-500',
+    },
+  ];
 
   const ClockStatus = isClockedIn => {
     const isIn = !!isClockedIn;
@@ -395,25 +410,11 @@ const Clientlist = () => {
                   render: u => {
                     return (
                       <div>
-                        <Select
+                        <CommonStatusSelect
                           value={u.status}
-                          className='text-[12px] border border-[#CDD0D1]! rounded-[20px]! capitalize'
+                          options={statusOptions}
                           onChange={value => handleStatusChange(u, value)}
-                        >
-                          <Option value='active'>
-                            <div className='flex items-center gap-2'>
-                              <span className='w-2 h-2 rounded-full bg-green-500'></span>
-                              Active
-                            </div>
-                          </Option>
-
-                          <Option value='inactive'>
-                            <div className='flex items-center gap-2'>
-                              <span className='w-2 h-2 rounded-full bg-red-500'></span>
-                              Inactive
-                            </div>
-                          </Option>
-                        </Select>
+                        />
                       </div>
                     );
                   },
@@ -440,7 +441,7 @@ const Clientlist = () => {
                         >
                           <ImageLoader imageKey='EditIcons' />
                         </span>
-                        
+
                         <span
                           className='cursor-pointer'
                           onClick={() => handleCreateAgentPage(u?.userId)}
