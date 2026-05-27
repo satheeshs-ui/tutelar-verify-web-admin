@@ -36,24 +36,43 @@ const ClientDetail = () => {
     return () => clearHeader();
   }, []);
 
-  const agentsData = [
-  {
-    id: 1,
-    name: 'John Doe',
-    email: 'john@company.com',
-    role: 'Admin',
-    roleColor: 'bg-[#F3E8FF] text-[#9333EA]',
-    status: 'Active',
-  },
-   {
-    id: 1,
-    name: 'John Doe',
-    email: 'john@company.com',
-    role: 'Checker',
-    roleColor: 'bg-[#F3E8FF] text-[#9333EA]',
-    status: 'Active',
-  },
-];
+  const documents = [
+    {
+      id: 1,
+      name: 'MSME certificate front.pdf',
+      type: 'PDF',
+      size: '1.20 MB',
+      uploadedDate: '2026-01-10',
+      verified: true,
+    },
+    {
+      id: 2,
+      name: 'Business PAN card.png',
+      type: 'PNG',
+      size: '820 KB',
+      uploadedDate: '2026-01-11',
+      verified: false,
+    },
+  ];
+
+  // const agentsData = [
+  //   {
+  //     id: 1,
+  //     name: 'John Doe',
+  //     email: 'john@company.com',
+  //     role: 'Admin',
+  //     roleColor: 'bg-[#F3E8FF] text-[#9333EA]',
+  //     status: 'Active',
+  //   },
+  //   {
+  //     id: 1,
+  //     name: 'John Doe',
+  //     email: 'john@company.com',
+  //     role: 'Checker',
+  //     roleColor: 'bg-[#F3E8FF] text-[#9333EA]',
+  //     status: 'Active',
+  //   },
+  // ];
 
   const items = [
     {
@@ -76,7 +95,7 @@ const ClientDetail = () => {
           <span>Documents</span>
         </div>
       ),
-      children: <Documents />,
+      children: <Documents documents={documents} />,
     },
     {
       key: 'billing',
@@ -86,7 +105,11 @@ const ClientDetail = () => {
           <span>Billing</span>
         </div>
       ),
-    children: <BillingDetail agents={agentsData} />,
+      children: (
+        <BillingDetail
+        //  agents={agentsData}
+        />
+      ),
     },
     {
       key: 'activity',
@@ -123,7 +146,7 @@ const ClientDetail = () => {
   return (
     <div className=''>
       <div className='rounded-[16px] bg-gradient-to-r from-[#057E73] to-[#32889F] px-6 py-5'>
-        <div className='grid grid-cols-1 lg:grid-cols-4 items-center'>
+        <div className='grid grid-cols-1 lg:grid-cols-5 items-center'>
           <div className='flex items-center gap-4'>
             <div className='w-10 h-10 flex items-center justify-center rounded-[14px] bg-white/10'>
               <ImageLoader imageKey='tickicons' className='w-5 h-5' />
@@ -150,7 +173,7 @@ const ClientDetail = () => {
           </div>
         </div>
       </div>
-      <div className='mt-6 custom-tabs-wrapper'>
+      <div className='mt-6'>
         <Tabs
           activeKey={activeTab}
           onChange={setActiveTab}
