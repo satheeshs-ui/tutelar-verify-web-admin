@@ -78,7 +78,7 @@ const ClientDetail = () => {
     {
       key: 'overview',
       label: (
-        <div className='flex items-center gap-2'>
+        <div className='flex items-center gap-2 '>
           <ImageLoader imageKey='OverViewIcon' className='w-4 h-5' />
 
           <span>Overview</span>

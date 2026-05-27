@@ -12,7 +12,7 @@ const BillingDetail = ({ agents = [] }) => {
   return (
     <div className=' overflow-hidden'>
       <div className='px-4 md:px-6 py-5 border-b border-[#CDD0D1]'>
-        <h2 className='text-[16px] md:text-[16px] font-semibold! text-[#111827] mb-0!'>
+        <h2 className='text-[16px] md:text-[18px] font-medium text-[#111827] mb-0!'>
           Total Agents
         </h2>
 
@@ -43,7 +43,7 @@ const BillingDetail = ({ agents = [] }) => {
                 </div>
 
                 <div className='min-w-0'>
-                  <h3 className='text-[15px] md:text-[16px] font-semibold! text-[#0B1C20]'>
+                  <h3 className='text-[16px] md:text-[16px] font-medium text-[#0B1C20]'>
                     {agent?.name || '-'}
                   </h3>
 
@@ -88,7 +88,7 @@ const BillingDetail = ({ agents = [] }) => {
             ${agent?.status === 'Active' ? 'bg-[#22C55E]' : 'bg-[#EF4444]'}`}
                   />
 
-                  <span className='text-[13px] md:text-[14px] font-medium text-[#111827]'>
+                  <span className='text-[12px] md:text-[14px] text-[#111827]'>
                     {agent?.status || 'Inactive'}
                   </span>
                 </div>
