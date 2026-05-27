@@ -216,6 +216,9 @@ import {
   Enterprise,
   LocationIcon,
   CopyIcon,
+  deleteIconimage,
+  deleteWhitecolor,
+  warningtriangle,
 } from '../../assets/assets';
 
 // Define allowed image keys for internal use
@@ -436,6 +439,9 @@ const images = {
   Enterprise,
   LocationIcon,
   CopyIcon,
+  deleteIconimage,
+  deleteWhitecolor,
+  warningtriangle,
 };
 
 const ImageLoader = ({

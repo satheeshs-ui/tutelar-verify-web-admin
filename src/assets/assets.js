@@ -177,8 +177,6 @@ export { default as DeviceInfoIcon } from './images/common-icons/DeviceInfoIcon.
 export { default as DeviceIcons } from './images/common-icons/DeviceIcons.svg';
 export { default as SearchIcons } from './images/common-icons/SearchIcons.svg';
 export { default as SubmitIcon } from './images/common-icons/submitIcon.svg';
-
-// detail page
 export { default as DetailMail } from './images/common-icons/DetailMail.svg';
 export { default as DetailPhone } from './images/common-icons/DetailPhone.svg';
 export { default as DetailLanguage } from './images/common-icons/DetailLanguage.svg';
@@ -223,3 +221,7 @@ export { default as ServicesIcon } from './images/common-icons/ServicesIcon.svg'
 export { default as Enterprise } from './images/common-icons/Enterprise.svg';
 export { default as LocationIcon } from './images/common-icons/LocationIcon.svg';
 export { default as CopyIcon} from './images/common-icons/CopyIcon.svg';
+export { default as deleteIconimage } from "./images/common-icons/deleteIconimage.svg";
+export { default as deleteWhitecolor } from "./images/common-icons/deleteWhitecolor.svg";
+export { default as warningtriangle } from "./images/common-icons/warningtriangle.svg";
+

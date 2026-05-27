@@ -23,6 +23,7 @@ const AntdInput = ({
     ...rest
 }) => {
     const handleChange = (e) => {
+         console.log(e)
         const rawValue = e.target.value;
 
         const restrictedValue = restrictInputValue(name, rawValue);
@@ -31,6 +32,7 @@ const AntdInput = ({
     };
 
     const handleBlur = (e) => {
+          
         const rawValue = e.target.value.trim();
         const restrictedValue = restrictInputValue(name, rawValue);
 

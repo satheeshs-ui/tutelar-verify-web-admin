@@ -46,4 +46,8 @@ pnpm-lock.yaml
 yarn.lock
 
 # Local config
+<<<<<<< HEAD
 *.local
+=======
+*.local
+>>>>>>> a355c1a49f18ae4b996be27ae13b735443753055

@@ -133,7 +133,7 @@ const Clientlist = () => {
   };
 
   const handleClick = () => {
-    navigate('/agents/agents-list/create-agent');
+    navigate('/clients-list/create-client');
   };
 
   const filteredData = agentListData?.agents?.filter(item =>
@@ -440,6 +440,7 @@ const Clientlist = () => {
                         >
                           <ImageLoader imageKey='EditIcons' />
                         </span>
+                        
                         <span
                           className='cursor-pointer'
                           onClick={() => handleCreateAgentPage(u?.userId)}

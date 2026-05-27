@@ -14,6 +14,8 @@ export const Number = {
     NUMBER_250: 250,
     THOUSAND: 1000,
     THREE_THOUSAND: 3000,
+    ONE_FIFTY: 150,
+    TWO_FIFTY_FIVE: 255
 };
 
 export const config = {
