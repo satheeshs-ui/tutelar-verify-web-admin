@@ -19,10 +19,11 @@ export default function PrivateRoute() {
         "/access-forbidden",
         "/users/users-list",
         "/users/user-list/edit-user",
-        "/users/users-list/create-user",
+        "/a/create-user",
         "/roles/roles-list",
         "/roles/role-list/create-role",
         "/roles/role-list/edit-role/",
+        "/client/client-list"
     ];
     const allowedPaths = [
         ...defaultPaths,

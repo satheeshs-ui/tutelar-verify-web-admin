@@ -66,7 +66,7 @@ const AppHeader = () => {
     };
 
     return (
-        <div className="flex flex-col gap-3 px-4 md:px-6 pt-4 pb-3 bg-white">
+        <div className="flex flex-col gap-3 px-4 md:px-6 pt-5 pb-3 bg-white">
             <div className="flex flex-wrap gap-4 items-center justify-between border-b border-gray-200">
                 <div>
                     {title && (
