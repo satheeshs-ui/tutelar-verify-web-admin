@@ -207,7 +207,6 @@ export { default as FileEyeIcon } from './images/common-icons/FileEyeIcon.svg';
 export { default as FrameIcon } from './images/common-icons/FrameIcon.svg';
 export { default as PdfIcon } from './images/common-icons/pdf.svg';
 export { default as message } from './images/common-icons/message.svg';
-
 export { default as deleteiconwhite } from './images/common-icons/deleteiconwhite.svg';
 export { default as EditWhiteIcon } from './images/common-icons/EditWhiteIcon.svg';
 export { default as tickicons } from './images/common-icons/tickicons.svg';
@@ -224,4 +223,7 @@ export { default as CopyIcon} from './images/common-icons/CopyIcon.svg';
 export { default as deleteIconimage } from "./images/common-icons/deleteIconimage.svg";
 export { default as deleteWhitecolor } from "./images/common-icons/deleteWhitecolor.svg";
 export { default as warningtriangle } from "./images/common-icons/warningtriangle.svg";
+export { default as clientIcon } from "./images/common-icons/clientIcon.svg";
+export { default as adminprofile } from "./images/common-icons/adminprofile.svg";
+export { default as closeIconAdmin } from "./images/common-icons/closeIconAdmin.svg";
 

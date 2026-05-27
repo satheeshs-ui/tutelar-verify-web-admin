@@ -35,7 +35,7 @@ const CustomSecondaryButton = ({
       {iconLeft && (
         <ImageLoader
           imageKey={iconLeft}
-          className="mr-2 w-4 h-4 brightness-0 saturate-100 invert-45 sepia-6 hue-rotate-169 contrast-88"
+          className="mr-3 w-3 h-3 brightness-0 saturate-100 invert-45 sepia-6 hue-rotate-169 contrast-88"
         />
       )}
 

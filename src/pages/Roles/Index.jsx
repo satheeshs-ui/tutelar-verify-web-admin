@@ -334,7 +334,7 @@ const RolesPage = () => {
                 ),
               },
               {
-                title: "Status",
+                title: "Role Status",
                 render: (u) => {
                   return (
                     <div>

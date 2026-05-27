@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   NothLogo,
   NorthaCrossTitle,
@@ -219,7 +219,10 @@ import {
   deleteIconimage,
   deleteWhitecolor,
   warningtriangle,
-} from '../../assets/assets';
+  clientIcon,
+  adminprofile,
+  closeIconAdmin,
+} from "../../assets/assets";
 
 // Define allowed image keys for internal use
 const images = {
@@ -442,6 +445,9 @@ const images = {
   deleteIconimage,
   deleteWhitecolor,
   warningtriangle,
+  clientIcon,
+  adminprofile,
+  closeIconAdmin,
 };
 
 const ImageLoader = ({
@@ -453,8 +459,9 @@ const ImageLoader = ({
   style,
   onLoad,
 }) => {
+  console.log(imageKey);
   // Check if the imageKey exists in our predefined images
-  const getPredefinedImage = key => {
+  const getPredefinedImage = (key) => {
     if (key && key in images) {
       return images[key];
     }
@@ -475,7 +482,7 @@ const ImageLoader = ({
       src={imageSrc ? imageSrc : fallbackSrc}
       alt={imageKey}
       className={className}
-      onError={e => {
+      onError={(e) => {
         e.target.src = fallbackSrc;
       }}
       onClick={onClick ? onClick : undefined}

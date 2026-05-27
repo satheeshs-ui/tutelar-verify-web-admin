@@ -25,7 +25,7 @@ export const CustomPrimaryButton = ({
                 disabled
                     ? "bg-primary-black-12 cursor-not-allowed text-gray-500 opacity-60"
                     : "bg-[#F04438]! cursor-pointer text-[#FFFFFF]!"
-            } text-base transition font-semibold ${className} text-[14px]`}
+            } text-base transition font-semibold ${className} text-[16px]`}
             style={customstyle}
             onClick={disabled ? undefined : handleClick}
             disabled={disabled}

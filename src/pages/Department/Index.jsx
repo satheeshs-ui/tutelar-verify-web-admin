@@ -368,7 +368,7 @@ const DepartmentList = () => {
                   <div className="flex justify-between items-center border-b border-[#CDD0D1] pb-4">
                     <div>
                       <div className="flex items-center gap-2">
-                        <div className="text-[#0B1C20] text-[18px]! font-semibold flex items-center gap-2">
+                        <div className="text-[#0B1C20]! text-[18px]! font-semibold flex items-center gap-2 leading-6">
                           <div className="bg-[#FEF3F2]! p-3 rounded-sm mr-2">
                             <ImageLoader imageKey={"deleteIconimage"} />
                           </div>
@@ -378,7 +378,7 @@ const DepartmentList = () => {
                     </div>
                   </div>
                   {/* deleteWhitecolor,warningtriangle */}
-                  <div className="mt-[18px] bg-[#F9FAFB] py-3 px-[18px] rounded">
+                  <div className="mt-[18px] bg-[#F9FAFB] pt-3 pb-1 px-[18px] rounded-[9px] border border-[#F3F3F3]">
                     <p className="text-[#0B1C20]! text-[16px]! font-medium!">
                       Technology
                     </p>
@@ -388,7 +388,7 @@ const DepartmentList = () => {
                     </p>
                   </div>
 
-                  <div className="mt-[18px]">
+                  <div className="mt-3.5 border-b border-[#CDD0D1] pb-6">
                     <p className="text-[#7A2E0E]! text-[14px]! flex items-center gap-3">
                       <ImageLoader
                         imageKey={"warningtriangle"}
@@ -396,7 +396,7 @@ const DepartmentList = () => {
                       />
                       Warning
                     </p>
-                    <p className="text-[12px]! text-[#F79009]! font-normal mt-3">
+                    <p className="text-[13px]! text-[#F79009]! font-normal mt-2 leading-[18px]">
                       Deleting this Department will remove all associated data
                       permanently. This action cannot be undone.
                     </p>
@@ -412,7 +412,7 @@ const DepartmentList = () => {
                       />
                       <div className="mt-5">
                         <CustomSecondaryButton
-                          iconLeft="cancelIcon"
+                          iconLeft="closeIconAdmin"
                           label="Cancel"
                           onNotify={handleClose}
                           customDesign={true}
