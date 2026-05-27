@@ -71,11 +71,11 @@ function ClientOverviewSection() {
                 className='w-5 h-5 text-[#1F2937]'
               />
 
-              <p className='text-[16px] font-semibold text-[#111827] mb-0!'>
+              <p className='text-[18px] font-medium text-[#111827] mb-0!'>
                 Company Information
               </p>
             </div>
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-y-8 gap-x-10 p-4'>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-10 p-4'>
               <InfoItem
                 icon={<ImageLoader imageKey='InboxMail' />}
                 label='EMAIL ADDRESS'
@@ -125,15 +125,15 @@ function ClientOverviewSection() {
 
         <div className='xl:col-span-4'>
           <div className='bg-gradient-to-b from-[#18667C] to-[#135263] rounded-[12px] p-6 h-full text-white'>
-            <h2 className='text-[17px] font-semibold! mb-6!'>Contact Details</h2>
+            <h2 className='text-[16px] font-medium mb-6!'>Contact Details</h2>
 
             <div className='flex items-center gap-4 mb-8 pl-1'>
-              <div className='w-14 h-14 rounded-full bg-white/20 flex items-center justify-center text-[16px] font-semibold'>
+              <div className='w-14 h-14 rounded-full bg-white/20 flex items-center justify-center text-[16px] font-medium'>
                 SM
               </div>
 
               <div>
-                <h3 className='text-[16px] font-[400] leading-none'>
+                <h3 className='text-[16px] leading-none font-normal!'>
                   Sarah Mitchell
                 </h3>
 
@@ -165,7 +165,7 @@ function ClientOverviewSection() {
       <div className='grid grid-cols-2 xl:grid-cols-12 gap-5 mt-4 items-stretch'>
         <div className='xl:col-span-4 flex'>
           <div className='bg-white border border-[#CDD0D1] rounded-[12px] p-4 md:p-4 w-full flex flex-col '>
-            <h2 className='text-[16px] md:text-[17px] font-semibold! text-[#111827] mb-5'>
+            <h2 className='text-[16px] md:text-[18px] font-medium text-[#111827] mb-5'>
               Quick Actions
             </h2>
 
@@ -179,7 +179,7 @@ function ClientOverviewSection() {
                     {item.icon}
                   </div>
 
-                  <span className='text-[13px] md:text-[14px] font-medium text-[#314158] text-left leading-[18px]'>
+                  <span className='text-[13px] md:text-[14px]  text-[#314158] text-left leading-[30px]'>
                     {item.label}
                   </span>
                 </button>
@@ -193,7 +193,7 @@ function ClientOverviewSection() {
             <div className='flex items-center gap-3 px-4 md:px-5 py-5 border-b border-[#CDD0D1] bg-[#F9FAFB]'>
               <ImageLoader imageKey='MetriceIcon' />
 
-              <h2 className='text-[15px] sm:text-[16px] md:text-[17px] font-semibold! text-[#0B1C20] mb-0 leading-none mb-0!'>
+              <h2 className='text-[15px] sm:text-[16px] md:text-[18px] font-medium text-[#0B1C20] mb-0 leading-none mb-0!'>
                 Performance Metrics
               </h2>
             </div>
@@ -203,7 +203,7 @@ function ClientOverviewSection() {
                 {metrics.map((item, index) => (
                   <div key={index}>
                     <div className='flex items-center justify-between mb-3'>
-                      <span className='text-[11px] md:text-[12px] font-medium text-[#6B7280] uppercase tracking-wide'>
+                      <span className='text-[11px] md:text-[12px] text-[#6B7280] uppercase tracking-wide'>
                         {item.title}
                       </span>
 
@@ -238,7 +238,7 @@ function ClientOverviewSection() {
                 ${index !== stats.length - 1 ? '' : ''}
               `}
                   >
-                    <h3 className='text-[22px] sm:text-[24px] md:text-[28px] font-medium text-[#16262B] leading-none'>
+                    <h3 className='text-[22px] sm:text-[24px] md:text-[24px] font-medium text-[#16262B] leading-none'>
                       {item.value}
                     </h3>
 
@@ -259,9 +259,9 @@ function ClientOverviewSection() {
 const InfoItem = ({ icon, label, value }) => {
   return (
     <div>
-      <p className='text-[12px] font-medium text-[#6A7174] mb-2'>{label}</p>
+      <p className='text-[12px] font-normal text-[#6A7174] mb-1!'>{label}</p>
 
-      <div className='flex items-center gap-2 text-[15px] text-[#111827] font-medium'>
+      <div className='flex items-center gap-2 text-[16px] text-[#16262B] font-normal!'>
         <span className='text-[#6B7280]'>{icon}</span>
 
         <span>{value}</span>
