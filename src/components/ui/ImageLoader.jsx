@@ -222,7 +222,15 @@ import {
   clientIcon,
   adminprofile,
   closeIconAdmin,
-} from "../../assets/assets";
+
+  MetriceIcon,
+  DownloadIcon,
+  PdfIcons,
+  VerifiedIcon,
+  SendMessage,
+  Reporticon,
+  SynceDetaicon,
+} from '../../assets/assets';
 
 // Define allowed image keys for internal use
 const images = {
@@ -448,6 +456,13 @@ const images = {
   clientIcon,
   adminprofile,
   closeIconAdmin,
+  MetriceIcon,
+  DownloadIcon,
+  PdfIcons,
+  VerifiedIcon,
+  SendMessage,
+  Reporticon,
+  SynceDetaicon,
 };
 
 const ImageLoader = ({

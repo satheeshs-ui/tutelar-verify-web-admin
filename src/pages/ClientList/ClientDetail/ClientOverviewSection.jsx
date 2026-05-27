@@ -1,31 +1,25 @@
 import React from 'react';
-import {
-  Building2,
-  Mail,
-  Phone,
-  Globe,
-  MapPin,
-  Users,
-  Activity,
-  FileText,
-  MessageSquare,
-  RefreshCw,
-  ExternalLink,
-} from 'lucide-react';
+import { Mail, Phone, FileText, MessageSquare, RefreshCw } from 'lucide-react';
 import ImageLoader from '../../../components/ui/ImageLoader';
 
 const quickActions = [
   {
     label: 'Send Message',
-    icon: <MessageSquare size={16} />,
+    icon: (
+      <ImageLoader imageKey='SendMessage' className='w-4 h-4 md:w-5 md:h-5' />
+    ),
   },
   {
     label: 'Generate Report',
-    icon: <FileText size={16} />,
+    icon: (
+      <ImageLoader imageKey='Reporticon' className='w-4 h-4 md:w-5 md:h-5' />
+    ),
   },
   {
     label: 'Sync Data',
-    icon: <RefreshCw size={16} />,
+    icon: (
+      <ImageLoader imageKey='SynceDetaicon' className='w-4 h-4 md:w-5 md:h-5' />
+    ),
   },
 ];
 
@@ -68,20 +62,19 @@ const stats = [
 function ClientOverviewSection() {
   return (
     <div className='w-full  p-4'>
-      <div className='grid grid-cols-2 xl:grid-cols-12 gap-4'>
+      <div className='grid grid-cols-2 xl:grid-cols-12 gap-5'>
         <div className='xl:col-span-8'>
-          <div className='bg-white border border-[#E5E7EB] rounded-[12px] overflow-hidden'>
+          <div className='bg-white border border-[#CDD0D1] rounded-[12px] overflow-hidden'>
             <div className='flex items-center gap-3 px-4 py-4 border-b border-[#CDD0D1] bg-[#F9FAFB]'>
               <ImageLoader
                 imageKey='Companyinfo'
                 className='w-5 h-5 text-[#1F2937]'
               />
 
-              <p className='text-[18px] font-medium text-[#111827] mb-0!'>
+              <p className='text-[16px] font-semibold text-[#111827] mb-0!'>
                 Company Information
               </p>
             </div>
-
             <div className='grid grid-cols-1 md:grid-cols-2 gap-y-8 gap-x-10 p-4'>
               <InfoItem
                 icon={<ImageLoader imageKey='InboxMail' />}
@@ -131,10 +124,10 @@ function ClientOverviewSection() {
         </div>
 
         <div className='xl:col-span-4'>
-          <div className='bg-gradient-to-b from-[#18667C] to-[#135263] rounded-[20px] p-5 h-full text-white'>
-            <h2 className='text-[18px] font-medium mb-6'>Contact Details</h2>
+          <div className='bg-gradient-to-b from-[#18667C] to-[#135263] rounded-[12px] p-6 h-full text-white'>
+            <h2 className='text-[17px] font-semibold! mb-6!'>Contact Details</h2>
 
-            <div className='flex items-center gap-4 mb-6'>
+            <div className='flex items-center gap-4 mb-8 pl-1'>
               <div className='w-14 h-14 rounded-full bg-white/20 flex items-center justify-center text-[16px] font-semibold'>
                 SM
               </div>
@@ -144,13 +137,13 @@ function ClientOverviewSection() {
                   Sarah Mitchell
                 </h3>
 
-                <p className='text-white/70 mt-1 text-[12px]'>
+                <p className='text-[#CBFBF1] mt-2! text-[12px]'>
                   Senior Account Manager
                 </p>
               </div>
             </div>
 
-            <div className='bg-white/15 rounded-[18px] p-4 border border-white/10'>
+            <div className='bg-white/20 rounded-[12px] p-4 '>
               <div className='flex items-center gap-3 pb-4 border-b border-white/20'>
                 <Mail size={18} />
 
@@ -169,24 +162,24 @@ function ClientOverviewSection() {
         </div>
       </div>
 
-      <div className='grid grid-cols-2 xl:grid-cols-12 gap-4 mt-4'>
-        <div className='xl:col-span-4'>
-          <div className='bg-white border border-[#E5E7EB] rounded-[12px] p-4 h-full'>
-            <h2 className='text-[18px] font-bold text-[#111827] mb-6'>
+      <div className='grid grid-cols-2 xl:grid-cols-12 gap-5 mt-4 items-stretch'>
+        <div className='xl:col-span-4 flex'>
+          <div className='bg-white border border-[#CDD0D1] rounded-[12px] p-4 md:p-4 w-full flex flex-col '>
+            <h2 className='text-[16px] md:text-[17px] font-semibold! text-[#111827] mb-5'>
               Quick Actions
             </h2>
 
-            <div className='space-y-6'>
+            <div className='flex flex-col gap-3 flex-1'>
               {quickActions.map((item, index) => (
                 <button
                   key={index}
-                  className='w-full flex items-center gap-4 bg-[#F3F3F3]  border border-[#CDD0D1] rounded-[8px] px-3 py-2 transition-all mb-3! '
+                  className='w-full flex items-center gap-3 bg-[#F3F3F3]  border border-[#CDD0D1] rounded-[12px] px-3 py-3 transition-all duration-200'
                 >
-                  <div className='w-10 h-10 rounded-lg bg-white flex items-center justify-center text-[#6B7280] shadow-sm'>
+                  <div className='w-10 h-10 min-w-[40px] rounded-[10px] bg-white border border-[#ECEEF2] flex items-center justify-center '>
                     {item.icon}
                   </div>
 
-                  <span className='text-[14px] font-medium text-[#314158]'>
+                  <span className='text-[13px] md:text-[14px] font-medium text-[#314158] text-left leading-[18px]'>
                     {item.label}
                   </span>
                 </button>
@@ -195,66 +188,66 @@ function ClientOverviewSection() {
           </div>
         </div>
 
-        <div className='xl:col-span-8'>
-          <div className='bg-white border border-[#E5E7EB] rounded-[12px] md:rounded-[16px] p-4 sm:p-5 shadow-sm'>
-            <div className='flex items-center gap-2 border-b border-[#ECEEF2] pb-3 md:pb-4'>
-              <ImageLoader
-                imageKey='Activity'
-                className='w-4 h-4 md:w-5 md:h-5 text-black!'
-              />
+        <div className='xl:col-span-8 flex'>
+          <div className='bg-white border border-[#CDD0D1] rounded-[12px] overflow-hidden  w-full flex flex-col'>
+            <div className='flex items-center gap-3 px-4 md:px-5 py-5 border-b border-[#CDD0D1] bg-[#F9FAFB]'>
+              <ImageLoader imageKey='MetriceIcon' />
 
-              <h2 className='text-[14px] sm:text-[16px] md:text-[18px] font-medium text-[#111827] leading-tight'>
+              <h2 className='text-[15px] sm:text-[16px] md:text-[17px] font-semibold! text-[#0B1C20] mb-0 leading-none mb-0!'>
                 Performance Metrics
               </h2>
             </div>
 
-            <div className='grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 mt-5 md:mt-6 pt-4 md:pt-5 gap-4 md:gap-5'>
-              {metrics.map((item, index) => (
-                <div key={index}>
-                  <div className='flex items-center justify-between mb-2'>
-                    <span className='text-[10px] sm:text-[11px] md:text-[12px] font-medium text-[#6B7280] uppercase tracking-wide'>
-                      {item.title}
-                    </span>
+            <div className='p-4 md:p-5 flex flex-col justify-between h-full mt-5'>
+              <div className='grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5'>
+                {metrics.map((item, index) => (
+                  <div key={index}>
+                    <div className='flex items-center justify-between mb-3'>
+                      <span className='text-[11px] md:text-[12px] font-medium text-[#6B7280] uppercase tracking-wide'>
+                        {item.title}
+                      </span>
 
-                    <span
-                      className='text-[10px] sm:text-[11px] md:text-[12px] font-semibold'
-                      style={{ color: item.color }}
-                    >
+                      <span
+                        className='text-[11px] md:text-[12px] font-semibold'
+                        style={{ color: item.color }}
+                      >
+                        {item.value}
+                      </span>
+                    </div>
+
+                    <div className='w-full h-[6px] bg-[#ECEEF2] rounded-full overflow-hidden'>
+                      <div
+                        className='h-full rounded-full transition-all duration-500'
+                        style={{
+                          width: item.width,
+                          backgroundColor: item.color,
+                        }}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className='grid grid-cols-1 sm:grid-cols-3 border-t border-[#CDD0D1] mt-6'>
+                {stats.map((item, index) => (
+                  <div
+                    key={index}
+                    className={`
+                flex flex-col items-center justify-center
+                py-5 px-3
+                ${index !== stats.length - 1 ? '' : ''}
+              `}
+                  >
+                    <h3 className='text-[22px] sm:text-[24px] md:text-[28px] font-medium text-[#16262B] leading-none'>
                       {item.value}
-                    </span>
+                    </h3>
+
+                    <p className='text-[11px] md:text-[12px] text-[#6B7280] mt-2 text-center leading-[18px]'>
+                      {item.label}
+                    </p>
                   </div>
-
-                  <div className='w-full h-[5px] sm:h-[6px] md:h-[7px] bg-[#ECEEF2] rounded-full overflow-hidden'>
-                    <div
-                      className='h-full rounded-full transition-all duration-500'
-                      style={{
-                        width: item.width,
-                        backgroundColor: item.color,
-                      }}
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className='grid grid-cols-1 sm:grid-cols-3 border-t border-[#ECEEF2] mt-5 md:mt-6 pt-5 gap-4 sm:gap-0'>
-              {stats.map((item, index) => (
-                <div
-                  key={index}
-                  className={`
-          text-center px-2 py-2 sm:py-0
-          ${index === 1 ? 'sm:border-x border-[#ECEEF2]' : ''}
-        `}
-                >
-                  <h3 className='text-[20px] sm:text-[24px] md:text-[28px] font-semibold text-[#111827] leading-tight'>
-                    {item.value}
-                  </h3>
-
-                  <p className='text-[10px] sm:text-[11px] md:text-[12px] text-[#6B7280] mt-1 leading-[16px] md:leading-[18px]'>
-                    {item.label}
-                  </p>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>

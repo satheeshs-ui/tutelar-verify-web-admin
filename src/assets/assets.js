@@ -226,4 +226,11 @@ export { default as warningtriangle } from "./images/common-icons/warningtriangl
 export { default as clientIcon } from "./images/common-icons/clientIcon.svg";
 export { default as adminprofile } from "./images/common-icons/adminprofile.svg";
 export { default as closeIconAdmin } from "./images/common-icons/closeIconAdmin.svg";
+export { default as MetriceIcon } from './images/common-icons/MetriceIcon.svg';
+export { default as DownloadIcon } from './images/common-icons/DownloadIcon.svg';
+export { default as PdfIcons } from './images/common-icons/PdfIcons.svg';
+export { default as VerifiedIcon } from './images/common-icons/VerifiedIcon.svg';
 
+export { default as SendMessage } from './images/common-icons/SendMessage.svg';
+export { default as Reporticon } from './images/common-icons/Reporticon.svg';
+export { default as SynceDetaicon } from './images/common-icons/SynceDetaicon.svg';
