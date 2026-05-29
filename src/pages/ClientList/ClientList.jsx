@@ -14,9 +14,10 @@ import dayjs from 'dayjs';
 import CommonFilter from '../../components/ui/Filter';
 import ImageLoader from '../../components/ui/ImageLoader';
 import { useHeaderStore } from '../../store/Header/useHeaderStore';
-import Paginations from '../../components/ui/Table/paginactions';
+
 import ClientFilter from './Filter/ClientFilter';
 import CommonStatusSelect from '../../components/ui/CommonStatusSelect';
+import Pagination from '../../components/ui/Table/Pagination';
 
 const { Option } = Select;
 
@@ -462,7 +463,7 @@ const Clientlist = () => {
 
             {shouldShowPagination(agentListData?.agents, page) && (
               <div className='mt-4'>
-                <Paginations
+                <Pagination
                   state={agentListData?.agents}
                   currentPage={page}
                   totalPages={totalPages}

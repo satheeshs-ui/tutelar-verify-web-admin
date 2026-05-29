@@ -18,7 +18,7 @@ const UniversalTable = ({
                             {columns.map((col, idx) => (
                                 <th
                                     key={idx}
-                                    className="overall-table-text text-[14px] px-4 py-3 text-sm font-medium text-[#6A7174] border-b border-gray-200 text-left whitespace-nowrap"
+                                    className="overall-table-text text-[14px] px-4 py-3 text-sm font-normal! text-[#6A7174] border-b border-gray-200 text-left whitespace-nowrap"
                                 >
                                     {col.title}
                                 </th>

@@ -245,3 +245,4 @@ export { default as Sprkles } from './images/common-icons/Sprkles.svg';
 export { default as CreatecaseIcon } from './images/common-icons/CreatecaseIcon.svg';
 export { default as UserPlus } from './images/common-icons/UserPlus.svg';
 export { default as ArrowRight } from './images/common-icons/ArrowRight.svg';
+export { default as VideoCallIcon } from './images/common-icons/VideoCallIcon.svg';

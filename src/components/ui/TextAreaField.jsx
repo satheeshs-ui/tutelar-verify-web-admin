@@ -2,7 +2,7 @@ const TestAreaField = ({ label, error, ...props }) => {
   return (
     <div className="onboard-business-search-teaxtarea-container">
       {label && (
-        <p className="text-[#40444C] font-medium text-sm mb-2.5!">
+        <p className="text-[#40444C] font-normal text-sm mb-2.5!">
           {label}{" "}
           {props.isRequired && <span className="text-[#FB2C36] ml-1">*</span>}
         </p>

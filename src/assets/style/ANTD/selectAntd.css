@@ -157,6 +157,7 @@
     background-position: right 0.75rem center;
     background-size: 20px 30px;
     padding-right: 2.5rem;
+    color: #767575 !important;
 }
 
 .ant-dropdown .ant-dropdown-menu {

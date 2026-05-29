@@ -631,6 +631,7 @@ export const getStatusColors = (status) => {
       fontSize: "12px",
       fontWeight: "400",
     },
+    
   };
 
   return colors[s] || colors.default;

@@ -240,6 +240,7 @@ import {
   CreatecaseIcon,
   UserPlus,
   ArrowRight,
+  VideoCallIcon,
 } from '../../assets/assets';
 
 // Define allowed image keys for internal use
@@ -484,6 +485,7 @@ const images = {
   CreatecaseIcon,
   UserPlus,
   ArrowRight,
+  VideoCallIcon,
 };
 
 const ImageLoader = ({
