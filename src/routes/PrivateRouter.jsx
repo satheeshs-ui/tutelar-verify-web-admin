@@ -27,7 +27,9 @@ export default function PrivateRoute() {
         "/clients-list/create-client",
         "/clients-list/edit-client",
         "/designations/designations-list",
-        "/departments/department-list"
+        "/departments/department-list",
+        "/admin/dashboard"
+   
     ];
     const allowedPaths = [
         ...defaultPaths,

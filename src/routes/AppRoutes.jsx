@@ -14,12 +14,18 @@ import Unauthorized from '../components/ui/Unauthorized';
 import CreateCasePage from '../pages/Cases/components/AddEdit/CreateCasePage.jsx';
 import Clientlist from '../pages/ClientList/ClientList.jsx';
 import ClientDetail from '../pages/ClientList/ClientDetail/ClientDetail.jsx';
+
 // import DocConfiguration from "../pages/DocConfiguration/Index.jsx";
 
 const Login = multiLazy(() => import("../pages/Login/Content/Login.jsx"));
 const ForgotPassword = multiLazy(
   () => import("../pages/Login/Content/ForgotPassword"),
 );
+
+const Dashboard = multiLazy(
+  () => import("../pages/Dashboard/Dashboard.jsx"),
+);
+
 const ResetPassword = multiLazy(
   () => import("../pages/Login/Content/ResetPassword"),
 );
@@ -106,6 +112,7 @@ const router = createBrowserRouter([
   {
     element: <PrivateRoute />,
     children: [
+      { path: "/admin/dashboard/", element: <Dashboard /> },
       { path: "/agents/agents-list", element: <AgentList /> },
       { path: "/case-bucket", element: <AgentWaitListDashboard /> },
       { path: "/profile", element: <Profile /> },

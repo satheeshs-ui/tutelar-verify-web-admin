@@ -1,36 +1,45 @@
 /* Active tab container */
 .ant-tabs-tab-active {
-    background-color: #18667c0f !important;
-    border-radius: 8px 8px 0 0;
-    border-bottom: 1px solid #18667c !important;
+  background-color: #18667c0f !important;
+  border-radius: 8px 8px 0 0;
+  border-bottom: 1px solid #18667c !important;
 }
 
 /* Active tab text */
 .ant-tabs-tab-active .ant-tabs-tab-btn {
-    color: #18667c !important;
-    font-size: 14px !important;
-    font-weight: 400;
+  color: #18667c !important;
+  font-size: 14px !important;
+  font-weight: 400;
 }
 
 .css-var-_r_0_.ant-tabs-css-var {
-    --ant-tabs-ink-bar-color: #18667c;
+  --ant-tabs-ink-bar-color: #18667c;
 }
 
 .ant-tabs-tab {
-    padding: 10px 100px !important;
-    /* background-color: #F9FAFB !important; */
-    color: #818a8c !important;
+  padding: 10px 100px !important;
+  /* background-color: #F9FAFB !important; */
+  color: #818a8c !important;
 }
 
 .custom-tabs .ant-tabs-nav {
-    background: #f9fafb;
+  background: #f9fafb;
 }
 
 .custom-tabs .ant-tabs-content-holder {
-    background: transparent !important;
-    padding: 0 !important;
+  background: transparent !important;
+  padding: 0 !important;
 }
 
 .custom-tabs .ant-tabs-nav::before {
-    border-bottom: none !important;
+  border-bottom: none !important;
+}
+
+.apexcharts-legend-marker {
+  display: none !important;
+}
+
+.apexcharts-legend-series {
+  display: flex !important;
+  align-items: center;
 }
