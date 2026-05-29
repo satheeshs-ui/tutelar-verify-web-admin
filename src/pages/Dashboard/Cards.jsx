@@ -1,12 +1,10 @@
 import React from 'react';
 import ImageLoader from '../../components/ui/ImageLoader';
+import UsageRadialChart from './DashboardServices/DashboardChart/UsageRadialChart';
 
 const Cards = () => {
-  const percentage = 48.6;
-  const degree = (percentage / 100) * 360;
-
   return (
-    <div className='grid grid-cols-11 gap-4 w-full'>
+    <div className='grid grid-cols-11 gap-4 max-[1000px]:grid-cols-1 w-full'>
       <div className='xl:max-[1399px]:col-span-5 2xl:max-[1499px]:col-span-5 col-span-5 bg-[linear-gradient(288.17deg,#1B829F_8.28%,#124F5F_81.27%)] rounded-2xl min-h-[245px] p-7 relative overflow-hidden text-white'>
         <div className='absolute top-0 right-0 w-[180px] pointer-events-none'>
           <ImageLoader
@@ -80,27 +78,9 @@ const Cards = () => {
           </div>
         </div>
 
-        <div className='flex items-center justify-between gap-4 xl:gap-6'>
+        <div className='flex items-center justify-between gap-4 xl:gap-2'>
           <div className='relative w-[180px] h-[180px] flex items-center justify-center'>
-            <div className='absolute inset-0 rounded-full border-12 xl:border-20 border-[#E5E7EB]' />
-
-            <div
-              className='absolute inset-0 rounded-full'
-              style={{
-                background: `conic-gradient(#0B7285 0deg ${degree}deg, transparent ${degree}deg 360deg)`,
-              }}
-            >
-              <div className='absolute inset-3 xl:inset-5 bg-white rounded-full' />
-            </div>
-
-            <div className='relative z-10 text-center'>
-              <h2 className='text-[22px] xl:text-[24px] font-medium text-[#111827]'>
-                {percentage}%
-              </h2>
-              <p className='text-[12px] xl:text-[13px] text-[#6B7280] mb-0!'>
-                Used
-              </p>
-            </div>
+            <UsageRadialChart />
           </div>
 
           <div className='flex-1 flex flex-col gap-2 xl:gap-3 min-w-0'>
