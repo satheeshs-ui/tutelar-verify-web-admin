@@ -216,7 +216,7 @@ const TopAgentsChart = () => {
           </p>
         </div>
         <div className='flex gap-3'>
-          <button className='text-[13px]! text-[#6A7174]! transition-all duration-200'>
+          <button className='text-[13px]! text-[#6A7174]! transition-all duration-200 cursor-pointer'>
             View All
           </button>
           <ImageLoader imageKey='ArrowRight' />
