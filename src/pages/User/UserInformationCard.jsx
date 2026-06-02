@@ -1,202 +1,383 @@
-import React, { useEffect, useState } from "react";
-import { Controller } from "react-hook-form";
-import { Form, Checkbox } from "antd";
+import React, { useEffect, useState } from 'react';
+import { Controller } from 'react-hook-form';
+// import { Form, Checkbox } from 'antd';
 
-import MenuCollpase from "./MenuCollapse";
-import { useParams } from "react-router-dom";
-import LottieLoader from "../../components/ui/LottieUnique/LottieLoader";
-import { showFailure } from "../../utils";
-import ApiCall from "../../config/api/axiosInstance";
-import AntdInput from "../../components/ui/AntdInput";
-import AntdSelect from "../../components/ui/AntdSelect";
-import DatePickerField from "../../components/ui/DatePickerField";
+import MenuCollpase from './MenuCollapse';
+import { useParams } from 'react-router-dom';
+import LottieLoader from '../../components/ui/LottieUnique/LottieLoader';
+import { showFailure } from '../../utils';
+import ApiCall from '../../config/api/axiosInstance';
+import AntdInput from '../../components/ui/AntdInput';
+import AntdSelect from '../../components/ui/AntdSelect';
+import DatePickerField from '../../components/ui/DatePickerField';
 
 const UserInformationCard = ({
-    control,
-    errors,
-    menuList,
-    setMenuList,
-    setValue,
-    languages,
-    clearErrors,
-    selectedRoles,
+  control,
+  errors,
+  menuList,
+  setMenuList,
+  setValue,
+  //   languages,
+  clearErrors,
+  //   selectedRoles,
 }) => {
-    const [roles, setRoles] = useState([]);
-    const [roleMap, setRoleMap] = useState([]);
+  const [roles, setRoles] = useState([]);
+  const [roleMap, setRoleMap] = useState([]);
 
-    const { userId } = useParams();
-    const [loading, setLoading] = useState(true);
-    const [selectRole, setSelectRole] = useState("");
-    useEffect(() => {
-        const fetchRoles = async () => {
-            setLoading(true);
+  const { userId } = useParams();
+  const [loading, setLoading] = useState(true);
+  const [selectRole, setSelectRole] = useState('');
+  useEffect(() => {
+    const fetchRoles = async () => {
+      setLoading(true);
 
-            try {
-                const response = await ApiCall.get("video-kyc/roles/client");
+      try {
+        const response = await ApiCall.get('video-kyc/roles/client');
 
-                if (response?.data?.success) {
-                    const formatted = response?.data?.data?.rolesList
-                        ?.filter((role) => role.roleName !== "Agent" && role.roleName !== "Client")
-                        .map((role) => ({
-                            value: role.roleId,
-                            label: role.roleName,
-                        }));
-                    const roleMap = response?.data?.data?.rolesList?.reduce((acc, role) => {
-                        acc[role.roleId] = role;
-                        return acc;
-                    }, {});
-                    setRoles(formatted);
-                    setRoleMap(roleMap);
+        if (response?.data?.success) {
+          const formatted = response?.data?.data?.rolesList
+            ?.filter(
+              role => role.roleName !== 'Agent' && role.roleName !== 'Client',
+            )
+            .map(role => ({
+              value: role.roleId,
+              label: role.roleName,
+            }));
+          const roleMap = response?.data?.data?.rolesList?.reduce(
+            (acc, role) => {
+              acc[role.roleId] = role;
+              return acc;
+            },
+            {},
+          );
+          setRoles(formatted);
+          setRoleMap(roleMap);
 
-                    if (!userId && formatted.length > 0) {
-                        setValue("roleId", formatted[0].value);
-                        setValue("role", formatted[0].roleName);
-                        setValue("appUserType", formatted[0].appUserType);
-                    }
-                } else {
-                    showFailure(response?.message || "Failed to fetch roles");
-                }
-            } catch (error) {
-                console.error("Roles API Error:", error);
-                showFailure("Failed to fetch roles");
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        fetchRoles();
-    }, [userId, setValue]);
-
-    const onParentToggle = (pIndex, checked) => {
-        const updated = [...menuList];
-
-        updated[pIndex].enabled = checked;
-        updated[pIndex].childMenu = updated[pIndex].childMenu.map((child) => ({
-            ...child,
-            enabled: checked,
-            access: "readWrite",
-        }));
-
-        setMenuList(updated);
+          if (!userId && formatted.length > 0) {
+            setValue('roleId', formatted[0].value);
+            setValue('role', formatted[0].roleName);
+            setValue('appUserType', formatted[0].appUserType);
+          }
+        } else {
+          showFailure(response?.message || 'Failed to fetch roles');
+        }
+      } catch (error) {
+        console.error('Roles API Error:', error);
+        showFailure('Failed to fetch roles');
+      } finally {
+        setLoading(false);
+      }
     };
 
-    const onChildToggle = (pIndex, cIndex, checked) => {
-        const updated = [...menuList];
+    fetchRoles();
+  }, [userId, setValue]);
 
-        updated[pIndex].childMenu[cIndex].enabled = checked;
+  const limitValue = (value, max) => {
+    return value ? value.slice(0, max) : '';
+  };
 
-        const anyChildEnabled = updated[pIndex].childMenu.some((child) => child.enabled);
+  const onParentToggle = (pIndex, checked) => {
+    const updated = [...menuList];
 
-        updated[pIndex].enabled = anyChildEnabled;
+    updated[pIndex].enabled = checked;
+    updated[pIndex].childMenu = updated[pIndex].childMenu.map(child => ({
+      ...child,
+      enabled: checked,
+      access: 'readWrite',
+    }));
 
-        setMenuList(updated);
-    };
+    setMenuList(updated);
+  };
 
-    const onAccessChange = (pIndex, cIndex, value) => {
-        const updated = [...menuList];
-        updated[pIndex].childMenu[cIndex].access = value;
-        setMenuList(updated);
-    };
+  const onChildToggle = (pIndex, cIndex, checked) => {
+    const updated = [...menuList];
 
-    if (loading) {
-        return (
-            <div className="flex justify-center items-center py-20">
-                <LottieLoader lottieKey="loaderIcon" playerClass="w-[80px]" />
-            </div>
-        );
-    }
+    updated[pIndex].childMenu[cIndex].enabled = checked;
 
+    const anyChildEnabled = updated[pIndex].childMenu.some(
+      child => child.enabled,
+    );
+
+    updated[pIndex].enabled = anyChildEnabled;
+
+    setMenuList(updated);
+  };
+
+  const onAccessChange = (pIndex, cIndex, value) => {
+    const updated = [...menuList];
+    updated[pIndex].childMenu[cIndex].access = value;
+    setMenuList(updated);
+  };
+
+  if (loading) {
     return (
-        <div className="space-y-6">
-            <div className="bg-white rounded-xl border border-[#E5E7EB]">
-                <div className="px-5 py-4">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-2">
-                        <Controller
-                            name="name"
-                            control={control}
-                            render={({ field }) => (
-                                <AntdInput
-                                    label="First Name"
-                                    isMandatory
-                                    value={field.value || ""}
-                                    placeholder="Enter first name"
-                                    error={errors.name?.message}
-                                    onValueChange={(data) => field.onChange(data.value)}
-                                />
-                            )}
-                        />
+      <div className='flex justify-center items-center py-20'>
+        <LottieLoader lottieKey='loaderIcon' playerClass='w-[80px]' />
+      </div>
+    );
+  }
 
-                        <Controller
-                            name="email"
-                            control={control}
-                            render={({ field }) => (
-                                <AntdInput
-                                    label="Email ID"
-                                    isMandatory
-                                    value={field.value || ""}
-                                    placeholder="Enter email address"
-                                    error={errors.email?.message}
-                                    disabled={userId}
-                                    onValueChange={(data) => {
-                                        if (!userId) {
-                                            field.onChange(
-                                                data?.value ? data.value.toLowerCase().trim() : ""
-                                            );
-                                        }
-                                    }}
-                                />
-                            )}
-                        />
-                        <Controller
-                            name="dateOfJoining"
-                            control={control}
-                            render={({ field }) => (
-                                <DatePickerField
-                                    label="Date Of Joining"
-                                    placeholder="DD/MM/YYY"
-                                    suffixIcon={"DatePickericon"}
-                                    value={field.value}
-                                    dobDate={true}
-                                    onValueChange={(date) => {
-                                        field.onChange(date);
-                                        // handleDateChange(date, "dob");
-                                    }}
-                                />
-                            )}
-                        />
+  return (
+    <div className='space-y-6'>
+      <div className='bg-white rounded-xl border border-[#E5E7EB]'>
+        <div className='px-5 py-4'>
+          <div className='grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-2'>
+            <Controller
+              name='firstName'
+              control={control}
+              render={({ field }) => (
+                <AntdInput
+                  label='First Name'
+                  isMandatory
+                  value={field.value || ''}
+                  placeholder='Enter First Name'
+                  error={errors.firstName?.message}
+                  onValueChange={data =>
+                    field.onChange(limitValue(data.value, 75))
+                  }
+                />
+              )}
+            />
 
-                        <Controller
-                            name="employeeId"
-                            control={control}
-                            render={({ field }) => (
-                                <AntdInput
-                                    label="Employee ID"
-                                    // isMandatory
-                                    value={field.value || ""}
-                                    placeholder="Enter employee ID"
-                                    onValueChange={(data) => field.onChange(data?.value)}
-                                />
-                            )}
-                        />
-                        <Controller
-                            name="mobile"
-                            control={control}
-                            render={({ field }) => (
-                                <AntdInput
-                                    label="Phone Number"
-                                    isMandatory
-                                    maxLength={10}
-                                    value={field.value || ""}
-                                    placeholder="Enter phone number"
-                                    error={errors.mobile?.message}
-                                    onValueChange={(data) =>
-                                        field.onChange(data.value.replace(/\D/g, ""))
-                                    }
-                                />
-                            )}
-                        />
+            <Controller
+              name='lastName'
+              control={control}
+              render={({ field }) => (
+                <AntdInput
+                  label='Last Name'
+                  isMandatory
+                  value={field.value || ''}
+                  placeholder='Enter Last Name'
+                  error={errors.lastName?.message}
+                  onValueChange={data =>
+                    field.onChange(limitValue(data.value, 75))
+                  }
+                />
+              )}
+            />
 
-                        <Controller
+            <Controller
+              name='email'
+              control={control}
+              render={({ field }) => (
+                <AntdInput
+                  label='Email ID'
+                  isMandatory
+                  value={field.value || ''}
+                  placeholder='Enter email address'
+                  error={errors.email?.message}
+                  disabled={userId}
+                  onValueChange={data => {
+                    if (!userId) {
+                      const value = data?.value
+                        ? data.value.toLowerCase().trim()
+                        : '';
+
+                      field.onChange(value.slice(0, 255));
+                    }
+                  }}
+                />
+              )}
+            />
+            <Controller
+              name='mobile'
+              control={control}
+              render={({ field }) => (
+                <AntdInput
+                  label='Phone Number'
+                  isMandatory
+                  maxLength={10}
+                  value={field.value || ''}
+                  placeholder='Enter phone number'
+                  error={errors.mobile?.message}
+                  onValueChange={data =>
+                    field.onChange(data.value.replace(/\D/g, '').slice(0, 10))
+                  }
+                />
+              )}
+            />
+
+            <Controller
+              name='designation'
+              control={control}
+              render={({ field }) => (
+                <AntdInput
+                  label='Designation'
+                  value={field.value || ''}
+                  placeholder='Enter designation'
+                  error={errors.designation?.message}
+                  onValueChange={data =>
+                    field.onChange(limitValue(data.value, 150))
+                  }
+                />
+              )}
+            />
+
+            <Controller
+              name='department'
+              control={control}
+              render={({ field }) => (
+                <AntdInput
+                  label='Department'
+                  value={field.value || ''}
+                  placeholder='Enter department'
+                  error={errors.department?.message}
+                  onValueChange={data =>
+                    field.onChange(limitValue(data.value, 150))
+                  }
+                />
+              )}
+            />
+
+            <Controller
+              name='reportingmanager'
+              control={control}
+              render={({ field }) => (
+                <AntdSelect
+                  label='Reporting Manager'
+                  isMandatory={false}
+                  value={field.value || ''}
+                  placeholder='Select Designation'
+                  options={[
+                    { value: 'Analysts', label: 'Analysts' },
+                    { value: 'Senior Analysts', label: 'Senior Analysts' },
+                    {
+                      value: 'Manager - Key Accounts',
+                      label: 'Manager - Key Accounts',
+                    },
+                    {
+                      value: 'Executive - Operations',
+                      label: 'Executive - Operations',
+                    },
+                  ]}
+                  suffixIcon={'dropdownArrowIcon'}
+                  sufixCls='w-3 h-3'
+                  onChange={value => {
+                    field.onChange(value);
+                  }}
+                />
+              )}
+            />
+
+            <Controller
+              name='dateOfBirth'
+              control={control}
+              render={({ field }) => (
+                <DatePickerField
+                  label='Date Of Birth'
+                  placeholder='DD/MM/YYY'
+                  suffixIcon={'DatePickericon'}
+                  value={field.value}
+                  dobDate={true}
+                  onValueChange={date => {
+                    field.onChange(date);
+                    // handleDateChange(date, "dob");
+                  }}
+                />
+              )}
+            />
+
+            <Controller
+              name='roleName'
+              control={control}
+              render={({ field }) => (
+                <AntdSelect
+                  label='Role Name'
+                  placeholder='Select role'
+                  isMandatory
+                  disabled={userId}
+                  options={roles}
+                  value={field.value || undefined}
+                  error={errors.roleName?.message}
+                  onChange={value => {
+                    field.onChange(value);
+                    const selected = roleMap[value];
+                    if (selected) {
+                      setValue('role', selected.roleName);
+                      setValue('appUserType', selected.appUserType);
+                      setSelectRole(selected.roleName);
+                      setValue('languages', []);
+                      clearErrors('languages');
+                    }
+                  }}
+                />
+              )}
+            />
+
+            <Controller
+              name='roleLevel'
+              control={control}
+              render={({ field }) => (
+                <AntdSelect
+                  label='Role Level'
+                  placeholder='Select role'
+                  isMandatory
+                  disabled={userId}
+                  options={roles}
+                  value={field.value || undefined}
+                  error={errors.roleLevel?.message}
+                  onChange={value => {
+                    field.onChange(value);
+
+                    const selected = roleMap[value];
+
+                    if (selected) {
+                      setValue('role', selected.roleName);
+                      setValue('appUserType', selected.appUserType);
+                      setSelectRole(selected.roleName);
+                      setValue('languages', []);
+                      clearErrors('languages');
+                    }
+                  }}
+                />
+              )}
+            />
+
+            <Controller
+              name='userType'
+              rules={{
+                required: 'User type is required',
+              }}
+              control={control}
+              render={({ field }) => (
+                <AntdSelect
+                  label='User Type'
+                  placeholder='Select role'
+                  isMandatory
+                  disabled={userId}
+                  options={roles}
+                  value={field.value || undefined}
+                  error={errors.userType?.message}
+                  onChange={value => {
+                    field.onChange(value);
+                    const selected = roleMap[value];
+                    if (selected) {
+                      setValue('role', selected.roleName);
+                      setValue('appUserType', selected.appUserType);
+                      setSelectRole(selected.roleName);
+                      setValue('languages', []);
+                      clearErrors('languages');
+                    }
+                  }}
+                />
+              )}
+            />
+
+            {/* <Controller
+              name='employeeId'
+              control={control}
+              render={({ field }) => (
+                <AntdInput
+                  label='Employee ID'
+                  // isMandatory
+                  value={field.value || ''}
+                  placeholder='Enter employee ID'
+                  onValueChange={data => field.onChange(data?.value)}
+                />
+              )}
+            /> */}
+
+            {/* <Controller
                             name="designation"
                             control={control}
                             render={({ field }) => (
@@ -224,8 +405,8 @@ const UserInformationCard = ({
                                     }}
                                 />
                             )}
-                        />
-                        <Controller
+                        /> */}
+            {/* <Controller
                             name="department"
                             control={control}
                             render={({ field }) => (
@@ -258,112 +439,82 @@ const UserInformationCard = ({
                                     // value={role || undefined}
                                 />
                             )}
-                        />
-                        <Controller
-                            name="roleId"
-                            control={control}
-                            render={({ field }) => (
-                                <AntdSelect
-                                    label="Role"
-                                    placeholder="Select role"
-                                    isMandatory
-                                    disabled={userId}
-                                    options={roles}
-                                    value={field.value || undefined}
-                                    error={errors.roleId?.message}
-                                    onChange={(value) => {
-                                        field.onChange(value);
+                        /> */}
 
-                                        const selected = roleMap[value];
-
-                                        if (selected) {
-                                            setValue("role", selected.roleName);
-                                            setValue("appUserType", selected.appUserType);
-                                            setSelectRole(selected.roleName);
-                                            setValue("languages", []);
-                                            clearErrors("languages");
-                                        }
-                                    }}
-                                />
-                            )}
-                        />
-
-                        {(selectedRoles === "agent" || selectRole === "Agent") && (
-                            <>
-                                <Controller
-                                    name="languages"
-                                    control={control}
-                                    render={({ field }) => (
-                                        <AntdSelect
-                                            label="Languages"
-                                            mode="multiple"
-                                            placeholder="Select languages"
-                                            labelCss="text-[#40444C] text-[14px] font-medium"
-                                            isMandatory
-                                            options={languages}
-                                            value={field.value || []}
-                                            onChange={(value) => field.onChange(value)}
-                                            error={errors.languages?.message}
-                                            optionRender={(option) => (
-                                                <div className="flex items-center gap-2">
-                                                    <Checkbox
-                                                        checked={field.value?.includes(
-                                                            option.value
-                                                        )}
-                                                    />
-                                                    <span>{option.label}</span>
-                                                </div>
-                                            )}
-                                        />
-                                    )}
-                                />
-
-                                <Controller
-                                    name="is_sign_language"
-                                    control={control}
-                                    render={({ field }) => (
-                                        <div className="flex items-center gap-2 mt-2">
-                                            <Checkbox
-                                                checked={field.value}
-                                                onChange={(e) => field.onChange(e.target.checked)}
-                                            >
-                                                Sign Language
-                                            </Checkbox>
-                                        </div>
-                                    )}
-                                />
-                            </>
-                        )}
-                    </div>
-                </div>
-            </div>
-
-            {menuList?.length > 0 && (
-                <div className="bg-white rounded-xl border border-[#E5E7EB]">
-                    <div className="px-5 py-3 border-b border-[#E5E7EB] bg-[#F9FAFB] rounded-t-xl flex justify-between items-center">
-                        <div>
-                            <h1 className="text-[15px] font-semibold text-[#111928]">
-                                Create Permissions
-                            </h1>
-                            <p className="text-xs text-gray-500 mt-1">
-                                Select modules and configure access levels
-                            </p>
+            {/* {(selectedRoles === 'agent' || selectRole === 'Agent') && (
+              <>
+                <Controller
+                  name='languages'
+                  control={control}
+                  render={({ field }) => (
+                    <AntdSelect
+                      label='Languages'
+                      mode='multiple'
+                      placeholder='Select languages'
+                      labelCss='text-[#40444C] text-[14px] font-medium'
+                      isMandatory
+                      options={languages}
+                      value={field.value || []}
+                      onChange={value => field.onChange(value)}
+                      error={errors.languages?.message}
+                      optionRender={option => (
+                        <div className='flex items-center gap-2'>
+                          <Checkbox
+                            checked={field.value?.includes(option.value)}
+                          />
+                          <span>{option.label}</span>
                         </div>
-                    </div>
+                      )}
+                    />
+                  )}
+                />
 
-                    <div className="px-4 py-3 max-h-[450px] overflow-y-auto">
-                        <MenuCollpase
-                            menuList={menuList}
-                            state={{ collapseLoader: false }}
-                            onParentToggle={onParentToggle}
-                            onChildToggle={onChildToggle}
-                            onAccessChange={onAccessChange}
-                        />
+                <Controller
+                  name='is_sign_language'
+                  control={control}
+                  render={({ field }) => (
+                    <div className='flex items-center gap-2 mt-2'>
+                      <Checkbox
+                        checked={field.value}
+                        onChange={e => field.onChange(e.target.checked)}
+                      >
+                        Sign Language
+                      </Checkbox>
                     </div>
-                </div>
-            )}
+                  )}
+                />
+              </>
+            )} */}
+          </div>
         </div>
-    );
+      </div>
+
+      {menuList?.length > 0 && (
+        <div className='bg-white rounded-xl border border-[#E5E7EB]'>
+          <div className='px-5 py-3 border-b border-[#E5E7EB] bg-[#F9FAFB] rounded-t-xl flex justify-between items-center'>
+            <div>
+              <h1 className='text-[15px] font-semibold text-[#111928]'>
+                Create Permissions
+              </h1>
+              <p className='text-xs text-gray-500 mt-1'>
+                Select modules and configure access levels
+              </p>
+            </div>
+          </div>
+
+          <div className='px-4 py-3 max-h-[450px] overflow-y-auto'>
+            <MenuCollpase
+              menuList={menuList}
+              state={{ collapseLoader: false }}
+              onParentToggle={onParentToggle}
+              onChildToggle={onChildToggle}
+              onAccessChange={onAccessChange}
+            />
+          </div>
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default UserInformationCard;

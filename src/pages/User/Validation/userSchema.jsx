@@ -28,32 +28,54 @@
 //         .regex(MOBILE_REGEX, "Please enter a valid mobile number"),
 // });
 
-import { Languages } from "lucide-react";
-import * as yup from "yup";
+import { Languages } from 'lucide-react';
+import * as yup from 'yup';
 
 export const agentSchema = yup.object().shape({
-    name: yup
-        .string()
-        .trim()
-        .required("User first name is required")
-        .max(16, "Maximum 16 characters allowed"),
+  firstName: yup
+    .string()
+    .trim()
+    .required('User first name is required')
+    .max(75, 'Maximum 75 characters allowed'),
 
-    email: yup.string().trim().required("Email is required").email("Invalid email format"),
+  lastName: yup
+    .string()
+    .trim()
+    .required('User Last name is required')
+    .max(75, 'Maximum 75 characters allowed'),
 
-    mobile: yup
-        .string()
-        .required("Mobile number is required")
-        .matches(/^[0-9]{10}$/, "Mobile must be 10 digits"),
+  email: yup
+    .string()
+    .trim()
+    .required('Email ID is required')
+    .email('Please enter a valid Email ID')
+    .max(255, 'Email ID must not exceed 255 characters'),
 
-    roleId: yup.string().required("Role is required"),
+  mobile: yup
+    .string()
+    .required('Mobile number is required')
+    .matches(/^[0-9]{10}$/, 'Mobile must be 10 digits'),
 
-    languages: yup.array().when("appUserType", (role) => {
-        if (role[0] === "agent") {
-            return yup
-                .array()
-                .min(1, "At least one language is required")
-                .required("Languages are required");
-        }
-        return yup.array().strip();
-    }),
+  roleId: yup.string().required('Role is required'),
+
+  designation: yup.string().trim().max(150, 'Maximum 150 characters allowed'),
+
+  department: yup.string().trim().max(150, 'Maximum 150 characters allowed'),
+
+  roleName: yup.string().required('Role name is required'),
+  roleLevel: yup.string().required('Role level is required'),
+
+  userType: yup
+  .string()
+  .required('User type is required'),
+
+  languages: yup.array().when('appUserType', role => {
+    if (role[0] === 'agent') {
+      return yup
+        .array()
+        .min(1, 'At least one language is required')
+        .required('Languages are required');
+    }
+    return yup.array().strip();
+  }),
 });
